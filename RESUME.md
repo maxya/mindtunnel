@@ -8,11 +8,15 @@ V1–V5 local engineering and independent review are complete. Actual model util
 
 The current configured grunt and sam roles both use GPT-6.2 Sol. Fresh grunt and sam reported that runtime. The previously active grunt doing V1 reported GPT-6.1 Sol. Sam independently verified V1 using GPT-6.2 Sol.
 
+## Live planner collection at e9afb89
+
+The owner accepted V1–V5 local engineering and authorized transfer of the reviewed synthetic requests to approved, already available providers using included access with no additional charges. Sam cleared all 40 MindTunnel and 40 SQL request texts. The archives, grading materials and checkout stay on the operator side. The current collection record shows zero transfers, sessions and responses. Accuracy and failure attribution remain unknown. Continue with a tool-free, disconnected-from-the-checkout planner surface and confirmed included usage, or run the manual protocol with an eligible model. [Collection guide](validation/MODEL-RUNS.md) · [Live evidence](validation/planner-runs.json)
+
 ## Post-MVP checkpoints
 
 The validation work starts from 9284c1d. Keep the frozen corpus and original 85% threshold fixed. The operator-side protocol is in [manual model evaluation](harness/evaluation/VALIDATION.md). The run order and requirements are in the [validation ledger](validation/README.md).
 
-V1 was accepted at d18c4a0. V2 produced [two verified public request packets and collection instructions](validation/MODEL-RUNS.md). No real model session has run. The next product test requires an approved cloud transfer or existing local weights in a verified isolated runtime.
+V1 was accepted at d18c4a0. V2 produced [two verified public request packets and collection instructions](validation/MODEL-RUNS.md). No real model session has run. At that checkpoint cloud transfer approval and eligible local weights were outstanding. The live collection record above supersedes that authorization status.
 
 V2 is checkpointed at 53af712. V3 closed the Linux 3.11 minimum-version gap, including wheel and source installs outside the checkout. Run the [native Apple Silicon verification](docs/PLATFORMS.md) and retain its JSON evidence. Hosted CI remains open.
 

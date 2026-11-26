@@ -4,13 +4,23 @@
   "frozen_corpus_sha256": "054dd9272369591d82e7fe2bac8ca9a50e593f88f13ff33e974153b85aedb12b",
   "synthetic_only": true,
   "external_network_enabled": false,
+  "approval": {
+    "owner_scope": "Exact cleared public request text only, one fresh session per request, approved already available provider within existing included usage, no added credentials or paid usage.",
+    "reviewer_clearance": "Sam reviewed 40 MindTunnel IR and 40 SQL request texts. Grading files, packet archives and the checkout stay with the operator.",
+    "packets": [
+      {"mode": "ir", "path": "validation/requests/public-ir.zip", "sha256": "6204dfe8affd2eddab1fea8271e8b7baa6097b67df916bd654c2cca91e457659", "archive_bytes": 20693, "request_count": 40, "request_bytes_total": 29282},
+      {"mode": "sql", "path": "validation/requests/public-sql.zip", "sha256": "57549079308a67d0c8e7fd5c637d901045d4e9a7e14db0c6afc60eb37a43a67e", "archive_bytes": 28086, "request_count": 40, "request_bytes_total": 46682}
+    ]
+  },
   "runs": [],
+  "eligible_transports_used": 0,
+  "outbound_requests_transferred": 0,
   "real_sessions_started": 0,
   "real_responses_collected": 0,
   "real_model_accuracy": null,
   "candidate_classes": [
-    {"class": "cloud_frontier", "status": "unmeasured", "reason": "No approved external destination, model and outbound transfer for this study."},
-    {"class": "cloud_small", "status": "unmeasured", "reason": "No approved external destination, model and outbound transfer for this study."},
+    {"class": "cloud_frontier", "status": "unmeasured", "reason": "Existing Claude Pro session detected. The tested CLI transport added model-visible context and did not establish a subscription-only billing boundary. No eligible outbound transport was used."},
+    {"class": "cloud_small", "status": "unmeasured", "reason": "Existing Claude Pro session detected. The tested CLI transport added model-visible context and did not establish a subscription-only billing boundary. No eligible outbound transport was used."},
     {"class": "local", "status": "unmeasured", "reason": "Cached Ollama runtime image found. No eligible local weights identified in the checked locations."}
   ],
   "discovery": {
@@ -21,7 +31,31 @@
     "cached_ollama_image_short_id": "1bef63974974",
     "image_probe": "Temporary container, --pull never, --network none, --read-only, no host mounts. None of the three standard model directories checked existed.",
     "standard_host_model_cache_found": false,
-    "scope": "Checked common Ollama, Hugging Face and LM Studio locations and model-cache configuration presence. Custom storage locations require an owner-provided model path."
+    "scope": "Checked common Ollama, Hugging Face and LM Studio locations and model-cache configuration presence. Custom storage locations require an owner-provided model path.",
+    "cloud_transport_checks": {
+      "claude_code_version": "2.1.332",
+      "existing_auth_status": {"logged_in": true, "provider": "firstParty", "auth_method": "claude.ai", "subscription_type": "pro"},
+      "extra_usage_account_setting": "unverified",
+      "bare_mode": "Installed CLI help states that bare mode skips OAuth and keychain reads and requires API key authentication or apiKeyHelper for Anthropic.",
+      "offline_probe": {
+        "boundary": "Separate Bubblewrap filesystem and network namespaces, empty working directory, synthetic loopback endpoint, fake API key, no host home, repository or credential mounts.",
+        "flags": ["--print", "--safe-mode", "--restricted", "--strict-mcp-config", "--no-session-persistence", "--tools", "", "--disable-slash-commands", "--settings", "{}", "--system-prompt", "", "--max-turns", "1"],
+        "captured_requests": 1,
+        "model_tool_count": 0,
+        "exact_probe_text_preserved": true,
+        "additional_user_context_blocks": 4,
+        "system_text_blocks": 2,
+        "extra_user_context": ["runtime environment", "model identity", "token allocation", "date"],
+        "followup_variants": {
+          "custom_whitespace_system_prompt": "Four additional user-role context blocks, three system blocks and no tools.",
+          "bare_with_custom_whitespace_system_prompt": "Exact probe as the only user block, three system blocks and no tools. Installed CLI help excludes OAuth in bare mode."
+        },
+        "zero_budget_option": "Rejected as invalid. Value must be greater than zero.",
+        "no_extra_usage_option": "Rejected as unknown.",
+        "eligible": false
+      },
+      "other_routes": "Gemini CLI was absent from PATH. Codex CLI and task interfaces had no verified model-only boundary. No generic text-generation MCP tool was available."
+    }
   },
   "excluded": [
     "The engineering agents share the repository and can inspect frozen labels.",
