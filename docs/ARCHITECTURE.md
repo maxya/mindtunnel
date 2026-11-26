@@ -1,7 +1,7 @@
 # Architecture and data flow
 
 ## Core abstraction
-`PublicContract + public task -> Plan IR -> validated local execution -> private result`. Two separate CLI commands and trust domains. The request builder never accepts a dataset path, local mapping or result. A human can manually transfer the reviewed request to any planner. The offline executor accepts local inputs and plan; it has no provider code, network calls or generic code execution. The reference implementation is an ordinary process, not an OS sandbox. Future remote planner worker must have OS-level separate privileges and no private mounts; executor must have network denied in a production deployment.
+`PublicContract + public task -> Plan IR -> validated local execution -> private result`. Separate planning and execution commands serve different trust domains. The request builder never accepts a dataset path, local mapping or result. A human can manually transfer the reviewed request to any planner. The offline executor accepts local inputs and plan; it has no provider code, network calls or generic code execution. The plain run command is an ordinary process. The optional Linux launcher enforces mount and network separation for the bundled mock planner and executor. See [Linux process isolation](ISOLATION.md).
 
 ```mermaid
 flowchart LR
@@ -37,8 +37,9 @@ Plan v1 JSON has exactly `version`, `contract_sha256`, `group_by` (null or one s
 - `python -m mindtunnel.cli run --contract ... --mapping ... --data ... --plan ... --out work/result.json` validates then executes locally, creates output exclusively (no overwrite), prints generic success. Errors shown as generic code, not values. Directory must already exist. Do not run on private data through a cloud-connected agent. No output export tool.
 - `make demo` uses synthetic inputs and inspects output. No provider call.
 
-## Future MVP interfaces
-`PlannerClient.generate(ApprovedRequest)->UntrustedPlan`; separate process, exact request bytes reviewed and hash-bound to explicit one-time approval, destination/model shown, no implicit context, tools, retrieval, retries with private errors, or access to private filesystem. Provider adapter is opt-in, test with fake HTTP capture; fail closed if offline/approval mismatch. A user can continue to use manual transport. `PlanValidator.validate(contract, bytes)->ValidatedPlan` only; `Executor.execute(validated, local_input)->Result`; `ResultSink.write_local(result)` only. Bind validated plan to a contract; avoid accepting mutated object after validation. Use JSON schemas plus code-level semantic validation (strict JSON parser; no duplicate keys or coercion). Future plan operations: projection, filtered aggregation, sorting/limits and safe computed fields after explicit semantics and tests. Do not introduce unrestricted SQL.
+## Planner interface
+
+The owner-side coordinator snapshots the public request, verifies approval, and passes exactly those bytes and the fixed destination/model to the isolated mock. It validates the untrusted response or recognizes the strict unsupported object. Manual transfer is available on other platforms. See [planner commands](PLANNING.md). The executor validates the plan before reading CSV data. Only explicitly selected local outputs receive results.
 
 ## Storage / operations
 No daemon or persistent DB. Private inputs/results should be outside the checkout, with owner-only permissions and disk encryption where available. Audit logs after MVP record only request/plan hash, operation category, version and status, not task, paths, values, counts, result hashes or raw provider errors by default; hashes of low-entropy secrets can leak. Explicit user-directed local export is outside the planner. Local dependencies are reviewed and pinned before releases.
@@ -52,3 +53,7 @@ Graphviz source: `diagrams/architecture.dot`; the Mermaid source above is also e
 ## Implemented public planning boundary
 
 The optional `mindtunnel_planner` coordinator previews exact request bytes, requires an explicit matching approval hash, and consumes an expiring single-use receipt before launching the isolated deterministic mock worker. Only the standalone public worker is mounted into that worker process. Returned captures are compared byte for byte and returned plans are validated against the public contract. Manual transport remains available. Usage and trust assumptions are documented in [PLANNING.md](PLANNING.md).
+
+## Local report
+
+`mindtunnel report --result <local-result> --out <private-text-file>` performs bounded v1 result validation and creates an escaped local text table. Its 16 MiB result-input ceiling accommodates the largest normal ASCII-escaped v1 result. This command accepts no planner destination or network transport and prints generic status. It shares the exclusive private sink with execution. See IMPLEMENTATION.md for mapping and report semantics.

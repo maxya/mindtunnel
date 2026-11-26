@@ -35,11 +35,11 @@ def reject_float(_):
     raise Invalid("noninteger_json")
 
 
-def parse(raw):
+def parse(raw, *, limit=MAX_JSON):
     require(type(raw) in (bytes, str), "invalid_json")
     try:
         encoded = raw.encode("utf-8") if type(raw) is str else raw
-        require(len(encoded) <= MAX_JSON, "json_limit")
+        require(len(encoded) <= limit, "json_limit")
         return json.loads(encoded.decode("utf-8"), object_pairs_hook=pairs,
                           parse_constant=reject_constant, parse_float=reject_float)
     except (UnicodeError, json.JSONDecodeError, RecursionError, OverflowError, ValueError) as exc:

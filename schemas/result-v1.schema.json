@@ -20,7 +20,9 @@
             "maxLength": 4096
           },
           "value": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": -461168601842738790400000,
+            "maximum": 461168601842738790350000
           }
         },
         "required": [

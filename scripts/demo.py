@@ -18,6 +18,10 @@ with tempfile.TemporaryDirectory() as t:
     got=json.loads(result.read_text());expected=json.loads((ROOT/"examples/expected.json").read_text())
     assert got==expected
     print("LOCAL RESULT (synthetic only):\n"+json.dumps(got,indent=2))
+    report=Path(t).resolve()/"report.txt"
+    cmd("report","--result",str(result),"--out",str(report),check=True)
+    assert report.read_text()== 'group | value\n"food" | 2200\n"transport" | 3000\n'
+    print("LOCAL REPORT (synthetic only):\n"+report.read_text())
     r=cmd(*args,"--plan","examples/rejected-plan.json",capture_output=True)
     assert r.returncode==2 and "plan_keys" in r.stderr
     print("Malicious plan rejected; synthetic demo passed.")

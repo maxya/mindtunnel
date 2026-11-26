@@ -180,7 +180,7 @@ class Conformance(unittest.TestCase):
 
     def test_no_network_or_dynamic_execution_imports(self):
         forbidden = {'socket', 'urllib', 'http', 'requests', 'subprocess', 'ctypes'}
-        for name in ['core.py', 'files.py', 'cli.py']:
+        for name in ['core.py', 'files.py', 'cli.py', 'report.py']:
             tree = ast.parse((ROOT / 'mindtunnel' / name).read_text())
             for node in ast.walk(tree):
                 if isinstance(node, ast.Import):

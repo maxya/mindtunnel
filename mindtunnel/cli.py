@@ -4,6 +4,7 @@ import json
 import sys
 from .files import write_private
 from .core import Invalid, execute, load, request
+from .report import load_result, render
 
 def main(argv=None):
     p = argparse.ArgumentParser(prog="mindtunnel")
@@ -14,13 +15,18 @@ def main(argv=None):
     r = sub.add_parser("run", help="Execute a plan locally; no remote calls")
     for name in ("contract", "mapping", "data", "plan", "out"):
         r.add_argument("--"+name, required=True)
+    report = sub.add_parser("report", help="Write an escaped private local text table")
+    report.add_argument("--result", required=True)
+    report.add_argument("--out", required=True)
     a = p.parse_args(argv)
     try:
-        c = load(a.contract)
-        if a.cmd == "request":
-            print(json.dumps(request(c, a.task), ensure_ascii=True, indent=2))
+        if a.cmd == "report":
+            write_private(a.out, render(load_result(a.result)))
+            print("Local report written.")
+        elif a.cmd == "request":
+            print(json.dumps(request(load(a.contract), a.task), ensure_ascii=True, indent=2))
         else:
-            result = execute(c, load(a.mapping), load(a.plan), a.data)
+            result = execute(load(a.contract), load(a.mapping), load(a.plan), a.data)
             raw = (json.dumps(result, ensure_ascii=True, indent=2) + "\n").encode("utf-8")
             write_private(a.out, raw)
             print("Local result written. No result sent to a model.")
