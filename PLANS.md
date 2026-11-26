@@ -1,5 +1,7 @@
 # Implementation roadmap
 
+P0 verified, P1 accepted, P2 next. Updated 2026-11-26. See [execution ledger](todo/mvp-implementation-plan.md) and [observed results](RESUME.md).
+
 Estimates are planning ranges, not commitments. Bootstrap (P0) is supplied. Target: focused public v0.1 in ~4–6 weeks of part-time work if quality gates pass; do not promise dates. No automatic pushes or license selection.
 
 | Phase | Work packages / dependencies | Gate / evidence |

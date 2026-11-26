@@ -9,7 +9,7 @@ def cmd(*args,**kw):
     return subprocess.run([sys.executable,"-m","mindtunnel.cli",*args], cwd=ROOT, text=True, **kw)
 
 with tempfile.TemporaryDirectory() as t:
-    result=Path(t)/"result.json"
+    result=Path(t).resolve()/"result.json"
     p=cmd("request","--contract","examples/contract.json","--task","Sum amount_cents by category",capture_output=True,check=True)
     assert "CANARY" not in p.stdout and "MERCHANT_SECRET" not in p.stdout
     print("PUBLIC REQUEST (synthetic):\n"+p.stdout)

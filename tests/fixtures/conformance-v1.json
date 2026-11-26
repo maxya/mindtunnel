@@ -1,0 +1,311 @@
+{
+  "invalid": [
+    {
+      "id": "missing_version",
+      "raw": "{\"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "missing_contract_sha256",
+      "raw": "{\"version\": 1, \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "missing_group_by",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "missing_aggregate",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"filter\": null}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "missing_filter",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "extra_path",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null, \"path\": \"SYNTHETIC_PRIVATE_CANARY\"}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "extra_command",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null, \"command\": \"SYNTHETIC_PRIVATE_CANARY\"}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "extra_sql",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null, \"sql\": \"SYNTHETIC_PRIVATE_CANARY\"}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "extra_url",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null, \"url\": \"SYNTHETIC_PRIVATE_CANARY\"}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "extra_callback",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null, \"callback\": \"SYNTHETIC_PRIVATE_CANARY\"}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "extra_tools",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null, \"tools\": \"SYNTHETIC_PRIVATE_CANARY\"}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "extra_script",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null, \"script\": \"SYNTHETIC_PRIVATE_CANARY\"}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "extra_result",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null, \"result\": \"SYNTHETIC_PRIVATE_CANARY\"}",
+      "error": "plan_keys"
+    },
+    {
+      "id": "version_True",
+      "raw": "{\"version\": true, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "plan_version"
+    },
+    {
+      "id": "version_0",
+      "raw": "{\"version\": 0, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "plan_version"
+    },
+    {
+      "id": "version_2",
+      "raw": "{\"version\": 2, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "plan_version"
+    },
+    {
+      "id": "version_1",
+      "raw": "{\"version\": \"1\", \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "plan_version"
+    },
+    {
+      "id": "version_None",
+      "raw": "{\"version\": null, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "plan_version"
+    },
+    {
+      "id": "hash_",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "contract_mismatch"
+    },
+    {
+      "id": "hash_0000000000000000000000000000000000000000000000000000000000000000",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"0000000000000000000000000000000000000000000000000000000000000000\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "contract_mismatch"
+    },
+    {
+      "id": "hash_None",
+      "raw": "{\"version\": 1, \"contract_sha256\": null, \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "contract_mismatch"
+    },
+    {
+      "id": "hash_[]",
+      "raw": "{\"version\": 1, \"contract_sha256\": [], \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "contract_mismatch"
+    },
+    {
+      "id": "hash_True",
+      "raw": "{\"version\": 1, \"contract_sha256\": true, \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "contract_mismatch"
+    },
+    {
+      "id": "group_unknown",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"unknown\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "field_reference"
+    },
+    {
+      "id": "group_amount_cents",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"amount_cents\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "field_reference"
+    },
+    {
+      "id": "group_../private.csv",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"../private.csv\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "field_reference"
+    },
+    {
+      "id": "group_[]",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": [], \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "field_reference"
+    },
+    {
+      "id": "group_True",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": true, \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": null}",
+      "error": "field_reference"
+    },
+    {
+      "id": "op_shell",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"shell\", \"field\": null}, \"filter\": null}",
+      "error": "unsupported_op"
+    },
+    {
+      "id": "op_min",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"min\", \"field\": null}, \"filter\": null}",
+      "error": "unsupported_op"
+    },
+    {
+      "id": "op_None",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": null, \"field\": null}, \"filter\": null}",
+      "error": "unsupported_op"
+    },
+    {
+      "id": "op_[]",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": [], \"field\": null}, \"filter\": null}",
+      "error": "unsupported_op"
+    },
+    {
+      "id": "op_True",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": true, \"field\": null}, \"filter\": null}",
+      "error": "unsupported_op"
+    },
+    {
+      "id": "sum_string",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"category\"}, \"filter\": null}",
+      "error": "field_reference"
+    },
+    {
+      "id": "count_field",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"count\", \"field\": \"category\"}, \"filter\": null}",
+      "error": "count_field"
+    },
+    {
+      "id": "aggregate_extra",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"count\", \"field\": null, \"sql\": \"select\"}, \"filter\": null}",
+      "error": "aggregate_keys"
+    },
+    {
+      "id": "aggregate_null",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": null, \"filter\": null}",
+      "error": "aggregate_keys"
+    },
+    {
+      "id": "filter_extra",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": {\"field\": \"category\", \"eq\": \"a\", \"url\": \"x\"}}",
+      "error": "filter_keys"
+    },
+    {
+      "id": "filter_array",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": []}",
+      "error": "filter_keys"
+    },
+    {
+      "id": "integer_filter_True",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": {\"field\": \"amount_cents\", \"eq\": true}}",
+      "error": "literal_type"
+    },
+    {
+      "id": "integer_filter_1.0",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": {\"field\": \"amount_cents\", \"eq\": 1.0}}",
+      "error": "noninteger_json"
+    },
+    {
+      "id": "integer_filter_1",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": {\"field\": \"amount_cents\", \"eq\": \"1\"}}",
+      "error": "literal_type"
+    },
+    {
+      "id": "integer_filter_9223372036854775808",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": {\"field\": \"amount_cents\", \"eq\": 9223372036854775808}}",
+      "error": "literal_type"
+    },
+    {
+      "id": "integer_filter_-9223372036854775809",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": {\"field\": \"amount_cents\", \"eq\": -9223372036854775809}}",
+      "error": "literal_type"
+    },
+    {
+      "id": "integer_filter_None",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": {\"field\": \"amount_cents\", \"eq\": null}}",
+      "error": "literal_type"
+    },
+    {
+      "id": "string_filter_1",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": {\"field\": \"category\", \"eq\": 1}}",
+      "error": "literal_type"
+    },
+    {
+      "id": "string_filter_True",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": {\"field\": \"category\", \"eq\": true}}",
+      "error": "literal_type"
+    },
+    {
+      "id": "string_filter_None",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": {\"field\": \"category\", \"eq\": null}}",
+      "error": "literal_type"
+    },
+    {
+      "id": "string_filter_xxxxxxxxxxxxxxxxxxxx",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": {\"field\": \"category\", \"eq\": \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"}}",
+      "error": "literal_type"
+    },
+    {
+      "id": "string_filter_\ud800",
+      "raw": "{\"version\": 1, \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\", \"group_by\": \"category\", \"aggregate\": {\"op\": \"sum\", \"field\": \"amount_cents\"}, \"filter\": {\"field\": \"category\", \"eq\": \"\\ud800\"}}",
+      "error": "literal_type"
+    },
+    {
+      "id": "duplicate_key",
+      "raw": "{\"version\":1,\"version\":1}",
+      "error": "duplicate_key"
+    },
+    {
+      "id": "nonfinite",
+      "raw": "{\"x\":NaN}",
+      "error": "nonfinite_json"
+    },
+    {
+      "id": "overflow_float",
+      "raw": "{\"x\":1e400}",
+      "error": "noninteger_json"
+    }
+  ],
+  "valid": [
+    {
+      "version": 1,
+      "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+      "group_by": null,
+      "aggregate": {
+        "op": "count",
+        "field": null
+      },
+      "filter": null
+    },
+    {
+      "version": 1,
+      "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+      "group_by": null,
+      "aggregate": {
+        "op": "sum",
+        "field": "amount_cents"
+      },
+      "filter": null
+    },
+    {
+      "version": 1,
+      "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+      "group_by": "category",
+      "aggregate": {
+        "op": "count",
+        "field": null
+      },
+      "filter": null
+    },
+    {
+      "version": 1,
+      "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+      "group_by": "category",
+      "aggregate": {
+        "op": "sum",
+        "field": "amount_cents"
+      },
+      "filter": null
+    }
+  ]
+}

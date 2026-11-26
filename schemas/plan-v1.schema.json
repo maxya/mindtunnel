@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "contract_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+    },
+    "group_by": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{0,31}(?![\\s\\S])",
+          "not": {
+            "enum": [
+              "value",
+              "count"
+            ]
+          }
+        }
+      ]
+    },
+    "aggregate": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "const": "count"
+            },
+            "field": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "op",
+            "field"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "const": "sum"
+            },
+            "field": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]{0,31}(?![\\s\\S])",
+              "not": {
+                "enum": [
+                  "value",
+                  "count"
+                ]
+              }
+            }
+          },
+          "required": [
+            "op",
+            "field"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "filter": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]{0,31}(?![\\s\\S])",
+              "not": {
+                "enum": [
+                  "value",
+                  "count"
+                ]
+              }
+            },
+            "eq": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "maxLength": 4096
+                },
+                {
+                  "type": "integer",
+                  "minimum": -9223372036854775808,
+                  "maximum": 9223372036854775807
+                }
+              ]
+            }
+          },
+          "required": [
+            "field",
+            "eq"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "required": [
+    "version",
+    "contract_sha256",
+    "group_by",
+    "aggregate",
+    "filter"
+  ],
+  "additionalProperties": false
+}

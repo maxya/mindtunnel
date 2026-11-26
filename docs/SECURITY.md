@@ -21,3 +21,9 @@ Independent code review, boundary tests, runtime network-denied execution, inspe
 
 ## MCP policy
 MCP is a transport, not a privacy guarantee. No `get_result`, raw error or private path tool exposed to a cloud host. A future public `make_request`/`submit_plan` adapter returns generic status only; private result inspection is via owner-controlled local UI. Even status may reveal facts; keep it off by default, or explicitly define permitted disclosures. Do not pass local agent tool outputs to cloud automatically.
+
+## P1 implemented local controls
+
+Regular-file input validation uses `O_NOFOLLOW`, `O_NONBLOCK`, and descriptor-relative directory traversal, rejecting symlink ancestors and `..`. Inputs are bounded snapshots. Owner-selected physical paths are required, including on macOS systems with symlinked temporary-directory ancestors. Private output is published as a complete exclusive file with permissions restricted to 0600 or stricter by the owner's umask. Recoverable failure removes its temporary file. Concurrent creation preserves a single complete winner.
+
+These controls assume a trusted OS and owner-controlled directories. They do not authenticate file contents, prevent an authorized same-user process from changing regular files, or establish filesystem isolation. Source/network restrictions still require an external runtime boundary. Tests inspect direct executor imports for network and dynamic-execution dependencies. That check provides source-level evidence only. OS network denial, packet capture, and independent security review remain separate gates.

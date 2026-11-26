@@ -4,7 +4,7 @@ import hashlib
 import io
 import json
 import re
-from pathlib import Path
+from .files import read_regular
 
 MAX_JSON = 65_536
 MAX_FILE = 8 * 1024 * 1024
@@ -31,18 +31,24 @@ def pairs(items):
 def reject_constant(_):
     raise Invalid("nonfinite_json")
 
+def reject_float(_):
+    raise Invalid("noninteger_json")
+
+
 def parse(raw):
-    require(len(raw) <= MAX_JSON, "json_limit")
+    require(type(raw) in (bytes, str), "invalid_json")
     try:
-        return json.loads(raw, object_pairs_hook=pairs, parse_constant=reject_constant)
+        encoded = raw.encode("utf-8") if type(raw) is str else raw
+        require(len(encoded) <= MAX_JSON, "json_limit")
+        return json.loads(encoded.decode("utf-8"), object_pairs_hook=pairs,
+                          parse_constant=reject_constant, parse_float=reject_float)
     except (UnicodeError, json.JSONDecodeError, RecursionError, OverflowError, ValueError) as exc:
         if isinstance(exc, Invalid):
             raise
         raise Invalid("invalid_json") from None
 
 def load(path):
-    with Path(path).open("rb") as f:
-        return parse(f.read(MAX_JSON + 1))
+    return parse(read_regular(path, MAX_JSON))
 
 def keys(obj, expected, code):
     require(type(obj) is dict and set(obj) == set(expected), code)
@@ -60,7 +66,7 @@ def contract_fields(contract):
         keys(f, ("id", "type"), "field_keys")
         name = f["id"]
         require(type(name) is str and ID.fullmatch(name) is not None and name not in out and name not in ("value", "count"), "field_id")
-        require(f["type"] in ("string", "integer"), "field_type")
+        require(type(f["type"]) is str and f["type"] in ("string", "integer"), "field_type")
         out[name] = f["type"]
     return out
 
@@ -68,9 +74,19 @@ def contract_hash(contract):
     contract_fields(contract)
     return hashlib.sha256(canonical(contract)).hexdigest()
 
+def valid_text(value, limit):
+    if type(value) is not str or len(value) > limit:
+        return False
+    try:
+        value.encode("utf-8")
+        return True
+    except UnicodeError:
+        return False
+
+
 def request(contract, task):
     contract_fields(contract)
-    require(type(task) is str and 0 < len(task) <= 2000 and task.strip(), "task_limit")
+    require(valid_text(task, 2000) and task.strip(), "task_limit")
     return {"version": 1, "contract": contract, "contract_sha256": contract_hash(contract), "task": task,
             "instructions": "Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results."}
 
@@ -80,7 +96,7 @@ def field_of(fields, name, kind=None):
 
 def scalar(value, kind):
     if kind == "string":
-        require(type(value) is str and len(value) <= MAX_CELL, "literal_type")
+        require(valid_text(value, MAX_CELL), "literal_type")
     else:
         require(type(value) is int and -(2**63) <= value < 2**63, "literal_type")
     return value
@@ -94,7 +110,7 @@ def validate(contract, plan):
         field_of(fields, plan["group_by"], "string")
     a = plan["aggregate"]
     keys(a, ("op", "field"), "aggregate_keys")
-    require(a["op"] in ("count", "sum"), "unsupported_op")
+    require(type(a["op"]) is str and a["op"] in ("count", "sum"), "unsupported_op")
     if a["op"] == "count":
         require(a["field"] is None, "count_field")
     else:
@@ -117,11 +133,10 @@ def read_value(text, kind):
 def execute(contract, mapping, plan, path):
     fields = validate(contract, plan)
     keys(mapping, fields, "mapping_keys")
-    require(all(type(v) is str and 0 < len(v) <= MAX_CELL for v in mapping.values()), "mapping_header")
+    require(all(valid_text(v, MAX_CELL) and len(v) > 0 for v in mapping.values()), "mapping_header")
     require(len(set(mapping.values())) == len(mapping), "mapping_duplicate")
     # Read a bounded snapshot; no source mutation. OS-level isolation is external.
-    with Path(path).open("rb") as f:
-        raw = f.read(MAX_FILE + 1)
+    raw = read_regular(path, MAX_FILE)
     require(len(raw) <= MAX_FILE, "file_limit")
     try:
         reader = csv.reader(io.StringIO(raw.decode("utf-8-sig"), newline=""), strict=True)

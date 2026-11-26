@@ -1,0 +1,15 @@
+# MindTunnel implementation and acceptance
+
+PLANS.md defines the gates. This ledger records the execution order for the authorized MVP. P6 needs separate authorization. Use the configured grunt implementer and sam reviewer for each phase. The available role configurations use GPT-6.1 Sol. Review the actual diff and run the checks independently. Return material defects to grunt, then repeat review before accepting. Record final evidence in RESUME.md and harness/build-log.md and commit locally.
+
+| Phase | Starting state and work | Verification and gate |
+|---|---|---|
+| P0 | Existing Python CLI, examples, tests, CI definition. Checkpoint supplied files separately. | Bootstrap, tests and demo on synthetic data. |
+| P1 | Harden core parsing, file handling and sink. Freeze schemas, vectors and arithmetic semantics. | Run make test and make demo. Verify invalid cases, bounded input, no partial writes, mode and source immutability. Independent review. |
+| P2 | Define approval for reviewed bytes, destination and model. Keep manual transfer and add isolated offline mock worker. Give executor a network-isolated invocation. | Verify exact mock capture, refusal and no private context, expiry/replay/mismatch handling, generic errors. Exercise isolated processes with synthetic inputs. Actual remote provider requires separate approval. |
+| P3 | Add an explicitly local escaped report and mapping walkthrough. Keep existing operations unless benchmark needs justify an extension. | Exercise rendering through CLI, including untrusted labels, exact numbers and privacy-safe status. Repeat demo and P2 checks. |
+| P4 | Freeze 30 supported tasks across three invented datasets and 10 unsupported. Independently label before scoring. Record a local SQL baseline, privacy metrics, planning and pilot evidence separately. | Reproduce raw results, classify failures and run at least 30 rejection cases. Cloud quality, local-model quality and five outside participants require actual measurements. |
+| P5 | Prepare reproducible packaging, dependency inventory, disclosure route, release checklist and synthetic demo recording script. | Build and install from source and wheel in clean environments, inspect archive, verify CLI and examples. Owner licensing, hosted OS matrix and user acceptance remain explicit gates. |
+| Final | Check every MVP item against the resulting repository. | Grunt handles packaging/functional verification and fixes. Sam conducts separate cross-phase review. Orchestrator reruns aggregate checks and records evidence, limitations, commit history and next action. |
+
+Use invented fixtures only. Keep credentials, private files, production data, external publication, outreach and deployments outside this run. Test the allowlisted interpreter and runtime confinement with defensive contract and permission checks. Prevent untrusted code execution. Do not silently send anything to a planner. Record incomplete external evidence without skipping acceptance gates; independent release preparation may proceed while external validation is pending.
