@@ -1,9 +1,12 @@
 # Reporting a security issue
 
-MindTunnel is an experimental local analytics project. The threat model, implemented boundaries, and residual risks are documented in `docs/SECURITY.md` and `docs/ISOLATION.md`. Release acceptance remains subject to the documented evaluation and owner gates.
+Use the maintainer's designated private security channel once it is configured. The route remains pending for this candidate. Until it is available, keep sensitive reports local. Public issues can describe ordinary bugs using invented data.
 
-Use the repository's private vulnerability reporting channel if the maintainer has enabled it. The maintainer must confirm and publish a monitored private reporting route before release. During this preparation stage, keep sensitive findings local until a private channel is available. Public issues may describe a generic issue using invented data and synthetic canaries. Include the affected version, operating system, Python version, exact synthetic reproduction steps, expected behavior, observed generic status, and proposed mitigation when available.
+For private security reports, include the version, operating system, Python version, affected mode, expected behavior, observed behavior and synthetic steps that reproduce the issue. Use invented rows and paths. Keep credentials, actual CSVs, model credentials, private task text, terminal transcripts and personal information out of reports. [Threat model and current controls](docs/SECURITY.md)
 
-Keep credentials, personal information, private documents, real source rows, result values, sensitive task text, private paths, and raw production errors out of issue reports. A synthetic reproduction is sufficient for initial triage. Confidentiality-boundary violations require remediation and independent re-verification before the relevant release gate can pass.
+## Maintainer configuration before release
 
-The project currently supplies no promised response time or supported production release. The maintainer must define supported versions, reporting ownership, response expectations, and advisory/publication handling before release. Avoid publishing a vulnerability demonstration that discloses another person's private information.
+- Select a private channel with controlled access. Record who monitors it and who covers their absence.
+- Check that an external reporter can submit a synthetic report privately and that the assigned recipient receives it. Record the observed check without personal details.
+- Publish the verified route, supported versions, expected response process and coordinated disclosure policy with the release.
+- Define who triages reports, owns remediation and verifies the fix. Keep confidentiality-boundary failures open until independent verification resolves them.

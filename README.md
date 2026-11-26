@@ -2,7 +2,7 @@
 
 **Send the plan, not the data.** MindTunnel lets a planner design a small aggregate calculation from an explicitly public question and alias/type contract. Its local Python interpreter checks the resulting v1 JSON plan and runs it against a CSV. It writes the result to a private local file. The planner has no result or error feedback channel.
 
-**Release status:** local engineering has been reviewed on Linux with invented fixtures. Real model quality, outside usability, hosted cross-platform CI, license approval and release sign-off remain open. The bundled planner is a deterministic mock. Manual transfer supports a planner chosen by the owner.
+**Experimental release candidate.** On Linux, the synthetic workflow passed from source and from clean package installs, including Python 3.11.2. Actual planner quality, participant usability, native macOS and hosted CI results, license approval and release sign-off remain open. The bundled planner is a deterministic mock. Manual transfer supports a planner chosen by the owner.
 
 ## Run the synthetic demo
 
@@ -13,7 +13,7 @@ make test
 make demo
 ```
 
-The demo needs no dependencies, credentials or network. It shows the complete public request, executes a supplied plan, verifies totals of 2200 and 3000 cents, renders the local report and rejects an unexpected command field. The demo deliberately displays invented results. Normal CLI commands write results to an owner-selected file and print generic status.
+The demo uses the Python standard library and runs offline. It shows the complete public request, executes a supplied plan, verifies totals of 2200 and 3000 cents, renders the local report and rejects an unexpected command field. The demo deliberately displays invented results. Normal CLI commands write results to an owner-selected file and print generic status.
 
 ## Run a calculation
 
@@ -35,8 +35,8 @@ The ordinary executor runs with the local user's permissions. The optional Linux
 
 ## Install and evaluate
 
-Running directly from the checkout uses only Python's standard library. To install the packaged commands, build a wheel with the documented local build tools and install it into a new virtual environment. After installation, use `mindtunnel` in place of `python3 -m mindtunnel.cli` and `mindtunnel-planner` in place of `python3 -m mindtunnel_planner.cli`. [Source setup](BOOTSTRAP.md)
+Running directly from the checkout uses only Python's standard library. To install the packaged commands, build a wheel with the documented local build tools and install it into a new virtual environment. After installation, use `mindtunnel` in place of `python3 -m mindtunnel.cli` and `mindtunnel-planner` in place of `python3 -m mindtunnel_planner.cli`. [Source setup](BOOTSTRAP.md) · [Platform evidence and Apple Silicon check](docs/PLATFORMS.md)
 
 The interpreter supports exact count and integer sum, optional grouping by a string alias, and one typed equality filter. It rejects unsupported versions, operations, extra keys and invalid references. Arithmetic semantics, limits and local mapping examples are documented. [Implementation guide](docs/IMPLEMENTATION.md) · [Architecture](docs/ARCHITECTURE.md)
 
-The checked-in evaluation covers 30 feasible questions across three synthetic schemas, 10 unsupported questions and 53 invalid plan vectors. Gold and analyst-written SQL each matched all 30 expected results. The narrow mock declined all 30 feasible questions. The external model comparison and pilot still need participants and measured responses. [Evaluation data and commands](harness/evaluation/README.md) · [Workflow comparison](docs/WORKFLOW-COMPARISON.md) · [Project handoff](RESUME.md)
+The internal frozen evaluation covers 30 feasible questions across three synthetic schemas, 10 unsupported questions and 53 invalid plan vectors. Gold and analyst-written SQL each matched all 30 expected results. The narrow mock declined all 30 feasible questions. The external model comparison and pilot still need participants and measured responses. A reviewer can reproduce the boundary checks from the isolated-workflow instructions. [Candidate notes](docs/RELEASE-NOTES.md) · [Release checklist](docs/RELEASE.md)

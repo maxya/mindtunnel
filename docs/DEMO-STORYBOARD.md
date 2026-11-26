@@ -1,23 +1,28 @@
-# Synthetic demo recording
+# Synthetic demo
 
-The reproducible demonstration is `python3 scripts/demo.py`. It uses invented transactions and a hand-authored plan, prints the public request, executes locally, writes the escaped private report, and rejects the malicious plan. Its result is verified against the bundled expected output. A separate isolated workflow demonstrates runtime controls. The basic demo supplies no live-provider performance evidence.
-
-For a future GIF, use an owner-selected terminal recorder with an empty local shell history and a working directory containing only the public synthetic checkout. Review the recording for accidental ambient terminal content before sharing. Recording-tool installation and publication are separate owner decisions. The repository supplies this storyboard, runnable demo, and optional local GIF generator. A two-frame 1280×900 GIF was generated locally from the synthetic demo and inspected. Publication remains pending owner approval.
-
-1. Show the MindTunnel command and the public `contract.json`. Explain that the task and aliases are the reviewed disclosure.
-2. Run `python3 scripts/demo.py` in a terminal sized for readable JSON. Hold the complete public request long enough to inspect every field.
-3. Show the local result and report, including food total `2200` and transport total `3000`.
-4. Show the malicious-plan rejection and synthetic-demo success status.
-5. Show the trust-boundary documentation and state the measured scope, hand-authored planning fixture, runtime isolation requirements, and pending external evaluation gates.
-
-Record only the synthetic fixture. Keep the resulting capture local until the owner has reviewed it and authorized publication.
-
-## Optional local GIF generator
-
-With the optional Pillow `13.0` rendering tool already installed, run the local generator with a fresh destination.
+Run from the source checkout or extracted source archive.
 
 ```sh
-python3 scripts/make_demo_gif.py --out /tmp/mindtunnel-synthetic-demo.gif
+python3 scripts/demo.py
 ```
 
-The generator invokes the actual bundled synthetic demo, captures that subprocess's stdout, wraps all lines into readable pages, and creates a local GIF. Every public-request field and the full instructions, local results/report, and malicious-plan rejection appear across its frames. It captures the demo process output directly. The demo's synthetic temporary result files are removed after execution. The generator disables bytecode-cache writes, creates its output exclusively with private local permissions, and retains only the requested GIF. The application and its normal checks require no Pillow dependency. Review all GIF frames before any owner-authorized sharing.
+The example asks for summed transaction cents per category. The CSV includes fictional merchant values and physical column names. The public request shows only the question, field aliases and types, contract identifier, version and plan instructions.
+
+1. Read `PUBLIC REQUEST (synthetic)` to see exactly what a planner would receive.
+2. Inspect `BUNDLED PLAN (hand-authored)` for the contract identifier and allowed aggregate. The demo runs the supplied plan locally.
+3. See food total `2200` and transport total `3000` in the synthetic JSON result and local report.
+4. See `Rejected: plan_keys` when a plan adds an instruction outside the plan schema. The demo checks that rejection leaves no result file.
+
+This recording uses the portable CLI under the caller's process permissions. The scripted demo displays invented results so viewers can follow the workflow. Ordinary use writes results and reports to local files and prints generic status. The isolated mock workflow and its observed capture run have a separate procedure. [Linux isolation checks](ISOLATION.md) · [Threat model](SECURITY.md)
+
+## Generate a local GIF
+
+With Pillow already installed, run the generator at a fresh destination.
+
+```sh
+demo_dir="$(mktemp -d)"
+demo_dir="$(cd "$demo_dir" && pwd -P)"
+python3 scripts/make_demo_gif.py --out "$demo_dir/mindtunnel-synthetic-demo.gif"
+```
+
+The generator invokes the bundled demo and uses its stdout to render the request, plan, local results and rejection as paginated GIF frames. It creates the requested output exclusively with private local permissions. Review the frames before any owner-authorized sharing. The portable CLI and normal test suite use only the Python standard library.

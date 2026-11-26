@@ -13,7 +13,6 @@ Python 3.11+ with a standard-library runtime. Run `make test` and `make demo` fr
 | mindtunnel_isolation | Optional Linux namespace, resource and socket controls for the two workers |
 | schemas/ and tests/fixtures | Structural v1 schemas and frozen conformance vectors |
 | examples/ and scripts/demo.py | Invented inputs and an offline CLI demonstration |
-| harness/evaluation | Frozen labels, trusted SQL comparator, measurements and manual response scoring |
 
 The public CLI has no provider credential or endpoint setting. Manual transfer and the fixed local mock are the available planning paths. See [planning](PLANNING.md) and [Linux isolation](ISOLATION.md). Keep alias/type contracts deliberately public and mappings private.
 

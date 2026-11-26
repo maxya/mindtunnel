@@ -2,7 +2,13 @@
 
 MindTunnel is the product and the Python package and CLI are both named mindtunnel. Canonical repository is https://github.com/maxya/mindtunnel. The owner accepted local P0–P5 engineering at 9284c1d. The active validation roadmap covers V1–V5. P6 requires separate approval. Keep synthetic inputs only in agent sessions.
 
-## Post-MVP checkpoint
+## Current decision — NO-GO for public release
+
+V1–V5 local engineering and independent review are complete. Actual model utility, unaided human understanding, native Apple Silicon, hosted CI and owner release approvals remain open. Continue with the numbered collection steps in [the model run guide](validation/MODEL-RUNS.md), the [five-person pilot](validation/pilot/FACILITATOR.md) and [platform verification](docs/PLATFORMS.md). The [final independent review](validation/reviews/v5.md), [archive inventory](validation/distribution-results.json), [candidate notes](docs/RELEASE-NOTES.md) and [validation ledger](validation/README.md) are the current evidence. Earlier P0–P5 reports and archives are historical. Use the curated V5 archives or rebuild from the current positive manifest; the full Git history contains held-out answers.
+
+The current configured grunt and sam roles both use GPT-6.2 Sol. Fresh grunt and sam reported that runtime. The previously active grunt doing V1 reported GPT-6.1 Sol. Sam independently verified V1 using GPT-6.2 Sol.
+
+## Post-MVP checkpoints
 
 The validation work starts from 9284c1d. Keep the frozen corpus and original 85% threshold fixed. The operator-side protocol is in [manual model evaluation](harness/evaluation/VALIDATION.md). The run order and requirements are in the [validation ledger](validation/README.md).
 
@@ -11,6 +17,8 @@ V1 was accepted at d18c4a0. V2 produced [two verified public request packets and
 V2 is checkpointed at 53af712. V3 closed the Linux 3.11 minimum-version gap, including wheel and source installs outside the checkout. Run the [native Apple Silicon verification](docs/PLATFORMS.md) and retain its JSON evidence. Hosted CI remains open.
 
 V3 is checkpointed at d92a878. The [participant kit](validation/pilot/participant-kit.zip) and [facilitator protocol](validation/pilot/FACILITATOR.md) are ready. The five-row scoring sheet is blank. Zero participants have been observed.
+
+V4 is checkpointed at 186846c. V5 verified publication scope, final binaries and the [synthetic demo](validation/synthetic-demo.gif). No further local action can supply model responses, participant observations or native Mac results under the current authorization. Confirm a monitored private contact and select a project grant before any public release.
 
 ## Historical P0–P5 evidence on 2026-11-26
 

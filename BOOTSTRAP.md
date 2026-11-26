@@ -26,7 +26,3 @@ python3 -m venv .venv
 ```
 
 Keep build tools in the build environment. The installed project declares no third-party Python runtime dependencies. The ordinary executor and the isolated Linux launcher have different host requirements. See [isolation prerequisites](docs/ISOLATION.md).
-
-## Resume engineering work
-
-Check [observed progress](RESUME.md), [phase gates](PLANS.md), [agent instructions](AGENTS.md) and [build evidence](harness/build-log.md). Inspect the current branch and worktree. Use synthetic fixtures for all agent and CI runs. Release and external validation decisions remain with the owner.

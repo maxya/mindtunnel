@@ -1,0 +1,12 @@
+{
+  "source_files_checked": 60,
+  "signature_checks": [
+    "private_key",
+    "credential_prefix",
+    "host_path"
+  ],
+  "internal_members": 0,
+  "missing_relative_document_links": 0,
+  "wheel_sha256": "c963c4e8344909a7662d964e1013c1bb57517ea75a9baa229e52471cedff282b",
+  "sdist_sha256": "c053d969bcfbb3fdafe61dbe494d1c5081a5221e6ad76d431a4c6699372e22cc"
+}

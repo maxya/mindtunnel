@@ -15,7 +15,7 @@ mindtunnel = "mindtunnel.cli:main"
 mindtunnel-planner = "mindtunnel_planner.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["mindtunnel*"]
+include = ["mindtunnel", "mindtunnel_planner", "mindtunnel_isolation"]
 
 [tool.setuptools.data-files]
 "share/mindtunnel/examples" = ["examples/contract.json", "examples/mapping.json", "examples/plan.json", "examples/rejected-plan.json", "examples/expected.json", "examples/transactions.csv"]

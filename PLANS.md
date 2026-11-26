@@ -23,3 +23,5 @@ README demo: "This model has never seen the CSV. Here's the entire request. Here
 ## Post-MVP validation
 
 The owner accepted P0–P5 local implementation and verification at 9284c1d. The active roadmap is V1–V5 in [validation after implementation](validation/README.md). Product and public release gates remain open.
+
+V1 methodology PASS (d18c4a0). V2 packets and availability review PASS (53af712), model outcomes unmeasured. V3 available platform evidence PASS (d92a878), native macOS and hosted CI pending. V4 kit readiness PASS (186846c), pilot unobserved. V5 release preparation PASS, overall NO-GO. Preserve the frozen benchmark until the real planner comparison has been evaluated.

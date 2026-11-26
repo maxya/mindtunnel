@@ -17,7 +17,7 @@ Package verification additionally requires preinstalled setuptools `84.2.1`, whe
 python3 scripts/verify_release.py --out /tmp/mindtunnel-release-check.json
 ```
 
-Choose a fresh evidence path. Add `--artifacts <new-owner-directory>` to retain the built wheel and source archive. Every source file staged for the build must be named in `harness/release-files.txt`. That positive manifest includes source, synthetic examples, schemas, conformance data, evaluation tools/evidence, and relevant documentation. The script refuses symlinks in source-path components and copies only those known files into a temporary source tree with mode 0644, runs its tests and demo, builds a wheel and source archive, inspects every archive member, rebuilds from the source archive, and installs both the first wheel and source-archive-built wheel into clean environments. Installed CLI request, aggregation, report, planner preview, conformance vectors, argument-error privacy, and package import locations are checked from an unrelated working directory.
+Choose a fresh evidence path. Add `--artifacts <new-owner-directory>` to retain the built wheel and source archive. Every source file staged for the build must be named in `harness/release-files.txt`. That positive manifest includes source, synthetic demo examples, schemas, public conformance cases, runtime tests and usage documentation. Frozen study labels, operator evidence, participant scoring and orchestration files stay in the internal checkout. The script refuses symlinks in source-path components and copies only those known files into a temporary source tree with mode 0644, runs its tests and demo, builds a wheel and source archive, inspects every archive member, rebuilds from the source archive, and installs both the first wheel and source-archive-built wheel into clean environments. Installed CLI request, aggregation, report, planner preview, conformance vectors, argument-error privacy, and package import locations are checked from an unrelated working directory.
 
 Scripts in the source archive are invoked explicitly with `bash` or `python3` and use mode 0644. Source-archive verification builds its wheel using the same preinstalled build backend, then installs it into a clean runtime environment. The build environment is distinct from the clean runtime environments. The script records SHA-256 values for the source manifest and all inspected archive members. It checks source and wheel contents against the manifest, rejecting unexpected files. This scopes the privacy inspection to known repository material and generated packaging metadata. Inspect the final manifest and member inventory before any owner-approved publication.
 
@@ -32,7 +32,7 @@ The dependency inventory is `harness/dependency-inventory.json`. It covers the a
 ## Release and tag checklist
 
 - [ ] Approve the project name, license grant, copyright holder, final license text, package metadata, and publication scope.
-- [ ] Complete the frozen model-quality comparisons, five-person synthetic pilot, and all mandatory evaluation gates in GOALS.md and PLANS.md.
+- [ ] Complete the frozen model-quality comparisons, five-person synthetic pilot, and all mandatory evaluation gates including at least 85% exact plan plus result on 30 feasible questions and three of five independent boundary explanations.
 - [ ] Confirm a private, monitored security reporting route and security maintenance policy.
 - [ ] Review the threat model, supported guarantees, exclusions, conformance vectors, and all material independent-review findings.
 - [ ] Run the full source, archive, clean-install, end-to-end, and Linux isolation verification against the final commit.
@@ -42,3 +42,7 @@ The dependency inventory is `harness/dependency-inventory.json`. It covers the a
 - [ ] Obtain explicit owner approval for a local tag, remote push, package publication, GitHub release, or any deployment before performing that action.
 
 Use a signed or annotated tag according to the maintainer's approved release policy after the checklist passes. Tag creation, remote access, artifact upload, and publication are separate owner-controlled actions.
+
+## Decision evidence
+
+Record each actual model and its frozen settings, first-attempt score over all 30 feasible tasks, unsupported results over all ten, and separate retry outcomes. Record the independent SQL-generation comparison and participant outcomes. The private reporting channel must have an assigned monitor, a tested incoming report path and a response policy. Owners must inspect the actual candidate files and hashes and approve the project grant, release version and publication scope. The internal Git history contains held-out study labels and development records. Use a separately reviewed public export for any future source distribution.

@@ -22,7 +22,7 @@ Independent code review, boundary tests, runtime network-denied execution, inspe
 ## MCP policy
 MCP is a transport, not a privacy guarantee. No `get_result`, raw error or private path tool exposed to a cloud host. A future public `make_request`/`submit_plan` adapter returns generic status only; private result inspection is via owner-controlled local UI. Even status may reveal facts; keep it off by default, or explicitly define permitted disclosures. Do not pass local agent tool outputs to cloud automatically.
 
-## P1 implemented local controls
+## Local file controls
 
 Regular-file input validation uses `O_NOFOLLOW`, `O_NONBLOCK`, and descriptor-relative directory traversal, rejecting symlink ancestors and `..`. Inputs are bounded snapshots. Owner-selected physical paths are required, including on macOS systems with symlinked temporary-directory ancestors. Private output is published as a complete exclusive file with permissions restricted to 0600 or stricter by the owner's umask. Recoverable failure removes its temporary file. Concurrent creation preserves a single complete winner.
 
@@ -31,3 +31,13 @@ These controls assume a trusted OS and owner-controlled directories. They do not
 ## Observed Linux boundary
 
 The optional Linux executor and deterministic mock run in separate Bubblewrap namespaces. The owner-side launcher is trusted. See [isolation controls and synthetic capture procedure](ISOLATION.md) and [approval assumptions](PLANNING.md). The portable run command and manual copy/paste depend on owner-managed isolation. No live provider is connected. Independent engineering review and limited synthetic tests leave production host and operator risk unmeasured.
+
+## Planning sessions during evaluation
+
+A manual transfer discloses the question, alias semantics and declared public contract to the selected planner. A browser or agent connected to the source tree or scoring directory could also retrieve the answers. For a blind study use a fresh session for each approved payload and disable tools, browsing, retrieval, memory and filesystem access. Keep grader files and raw responses outside that session. Human mistakes, provider processing or retention, prior training exposure and compromised hosts remain residual risks.
+
+## Release claim limits
+
+The request builder reads the declared public contract and user question. The user approves disclosure in the chosen planner interface. The mock approval receipt binds bytes, destination and model for the bundled mock path. The ordinary CLI performs schema and path validation and runs under its caller's permissions on Linux and macOS. A compatible Linux host can apply the optional worker controls. Report packet observations together with the scope of the specific synthetic capture. [Planning workflow](PLANNING.md) · [Platform verification](PLATFORMS.md) · [Isolation procedure](ISOLATION.md)
+
+Host compromise, same-user access, synced storage, terminal recording, unintended disclosure in public aliases or tasks, and inference from results remain outside the demonstrated controls. Treat model responses as untrusted. The evaluator's SQL comparison accepts a constrained query language over bundled synthetic data and is separate from the product CLI.

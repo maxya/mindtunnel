@@ -42,7 +42,7 @@ Plan v1 JSON has exactly `version`, `contract_sha256`, `group_by` (null or one s
 The owner-side coordinator snapshots the public request, verifies approval, and passes exactly those bytes and the fixed destination/model to the isolated mock. It validates the untrusted response or recognizes the strict unsupported object. Manual transfer is available on other platforms. See [planner commands](PLANNING.md). The executor validates the plan before reading CSV data. Only explicitly selected local outputs receive results.
 
 ## Storage / operations
-No daemon or persistent DB. Private inputs/results should be outside the checkout, with owner-only permissions and disk encryption where available. Audit logs after MVP record only request/plan hash, operation category, version and status, not task, paths, values, counts, result hashes or raw provider errors by default; hashes of low-entropy secrets can leak. Explicit user-directed local export is outside the planner. Local dependencies are reviewed and pinned before releases.
+No daemon or persistent DB. Private inputs/results should be outside the checkout, with owner-only permissions and disk encryption where available. The product has no persistent audit log. Local approval receipts record the binding for a public request. Hashes of low-entropy secrets can reveal information, so keep private inputs outside receipts. Explicit user-directed local export is outside the planner. Local dependencies are reviewed and pinned before releases.
 
 ## Rendered diagram
 

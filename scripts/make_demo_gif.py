@@ -22,7 +22,7 @@ def make_gif(destination):
     if completed.returncode:
         raise ValueError('synthetic_demo_failed')
     text = completed.stdout.decode('utf-8')
-    if 'PUBLIC REQUEST (synthetic):' not in text or 'Malicious plan rejected; synthetic demo passed.' not in text:
+    if 'PUBLIC REQUEST (synthetic):' not in text or 'Synthetic demo passed.' not in text:
         raise ValueError('unexpected_demo_output')
     lines = []
     for line in text.splitlines():
