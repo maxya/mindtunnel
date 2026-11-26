@@ -283,7 +283,7 @@ def verify(artifacts=None):
             raise ValueError('sdist_normalization_changed_content')
         restored = directory/'restored-source'
         unpack_sdist(sdist, restored)
-        run(['bash','bootstrap.sh'], restored, environment)
+        run(['bash','bootstrap.sh'], restored, dict(environment, PYTHON=sys.executable))
         second_wheel, second_sdist = build(restored, directory/'second-build', environment)
         if wheel_content != inspect_wheel(second_wheel, source_bytes):
             raise ValueError('wheel_content_not_reproducible')

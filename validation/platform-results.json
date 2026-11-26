@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-26",
+  "baseline": "9284c1d",
+  "host": "Linux x86_64",
+  "cached_image": "node:22-bookworm",
+  "cached_image_id": "sha256:a25c9934ff6382cd4f08b6bc26c82bf4ea69b1e6f8dabfb2ead457374127c365",
+  "container_policy": "pull never, network none, read-only root, synthetic staging only",
+  "interpreter": "CPython 3.11.2",
+  "baseline_source_tests_passed": 54,
+  "synthetic_demo": "passed",
+  "outside_checkout_install": {
+    "wheel": "passed",
+    "source_archive": "passed"
+  },
+  "checked_behaviors": [
+    "preview",
+    "run",
+    "report",
+    "reject unauthorized plan"
+  ],
+  "build_recovery": "Python 3.11 sdist build required the already cached backports.tarfile 1.2.0 dependency. The build succeeded when supplied offline.",
+  "independently_reproduced": true,
+  "native_apple_silicon_result": null,
+  "hosted_ci_result": null,
+  "final_candidate": {
+    "distribution_tests_passed": 47,
+    "source_tests_scope": "curated source archive on CPython 3.11.2",
+    "wheel_sha256": "c963c4e8344909a7662d964e1013c1bb57517ea75a9baa229e52471cedff282b",
+    "sdist_sha256": "c053d969bcfbb3fdafe61dbe494d1c5081a5221e6ad76d431a4c6699372e22cc",
+    "wheel_clean_install": "passed",
+    "sdist_clean_install": "passed"
+  }
+}

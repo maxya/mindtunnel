@@ -8,6 +8,8 @@ The validation work starts from 9284c1d. Keep the frozen corpus and original 85%
 
 V1 was accepted at d18c4a0. V2 produced [two verified public request packets and collection instructions](validation/MODEL-RUNS.md). No real model session has run. The next product test requires an approved cloud transfer or existing local weights in a verified isolated runtime.
 
+V2 is checkpointed at 53af712. V3 closed the Linux 3.11 minimum-version gap, including wheel and source installs outside the checkout. Run the [native Apple Silicon verification](docs/PLATFORMS.md) and retain its JSON evidence. Hosted CI remains open.
+
 ## Historical P0–P5 evidence on 2026-11-26
 
 | Phase | Evidence and remaining work |
