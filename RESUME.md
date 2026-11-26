@@ -11,8 +11,24 @@ MindTunnel is the product and the Python package and CLI are both named mindtunn
 | P2 | Exact-byte approval and separate Linux mock and private workers implemented. Sam PASS. Commit 021fcae. 35 tests passed. Capture matched 722 bytes, local result matched gold, socket creation denied and outer synthetic capture observed zero packets. |
 | P3 | Private plain-text renderer, strict result validation and documented mappings. Commit a9b4304. 43 tests passed, sam PASS. |
 | P4 | Commit bd4916d. Sam PASS for the local harness. 50 tests passed; gold and analyst SQL 30/30 each, mock 0/30 feasible and 10/10 unsupported, invalid vectors 53/53 rejected. Actual model comparisons and five testers pending. |
-| P5 | Local package preparation verified, sam PASS. 54 tests on each of three Linux Python versions. Reproducible same-toolchain wheel and normalized sdist; clean installs checked. Full release gate open. Next is final project-wide review. |
+| P5 | Local package preparation verified, sam PASS. 54 tests on each of three Linux Python versions. Reproducible same-toolchain wheel and normalized sdist; clean installs checked. Commit fe92165. Full release gate open. Project-wide verification results follow. |
 
 The plain executor is an ordinary process. Do not use real data inside a cloud-connected coding session. A model provider, hosted CI, macOS, external testers and licensing require separate evidence. No provider or license has been selected. No package publication, deployment or push is authorized.
 
 Use git log --oneline for local phase commits. Start with PLANS.md and harness/build-log.md, then run make test and make demo. The implementer and reviewer share the filesystem and run separate checks.
+
+## Final engineering handoff
+
+**Local implementation PASS. Overall release acceptance remains blocked.** The P5 source checkpoint is fe92165. Grunt and sam independently exercised the installed wheel from clean environments outside the checkout. The installed planner captured exactly the 722 reviewed bytes, SHA-256 `029cd2e1e4a8a1b1408b4ebb707b2e5e346f7029c645def4553ee7c8d1b285f8`. The private worker produced 2200 and 3000 cents. The report matched gold. Replaying approval, overwriting output and submitting an unauthorized plan failed. The final independent review found no outstanding material defect in the local scope. See the repository's harness/reviews/ for phase reports and final MT-01–10 traceability.
+
+The scripted demo took 0.21 seconds in the final review. Linux tests and demo passed with Python 3.12.12, 3.13.17 and 3.14.10. The packaging verifier compared 80 allowlisted source files, 30 wheel members and 87 source archive members with expected contents. The two archive formats reproduced byte for byte under the same local toolchain. The version is 0.0.1 and the package declares zero third-party Python runtime dependencies. Independently provisioning the build environment on another host remains unverified. The local build inventory includes a development snapshot of jaraco.context.
+
+**External gates and next work**
+
+1. Choose and review a real planner destination/model and a local comparison model. Export the 40 blinded public requests, review the exact bytes before external transfer, collect responses without feedback and run the local scorer. Record latency, cost, manual interventions, separate unsupported outcomes and actual plan-plus-result accuracy. The cloud gate requires at least 85% on the 30 feasible tasks. Collect a model-generated schema-only baseline through a reviewed synthetic evaluation procedure. The current SQL evidence is analyst-authored.
+2. Run the five-person protocol. At least three participants must independently explain the boundary. See [pilot](docs/PILOT.md) and [scorer](harness/evaluation/README.md).
+3. Obtain hosted Linux/macOS evidence, including Python 3.11. The ordinary CLI uses local process permissions on macOS. The isolated worker implementation is Linux-specific.
+4. Confirm name clearance, license and copyright holder, monitored security reporting route and owner release sign-off. The current code carries no final open-source license grant. Re-run the release checklist after any change. [Release checklist](docs/RELEASE.md)
+5. Reconsider optional operations, integrations and ports only in light of observed planner and pilot failures. P6 is outside this authorization.
+
+Use [source setup](BOOTSTRAP.md), [usage](README.md), [threat model](docs/SECURITY.md), [build log](harness/build-log.md) and [roadmap](PLANS.md) for continuation. Start a new session with git status and the most recent local commits. Retain the fixed prompts, labels and denominators for comparable evaluation.

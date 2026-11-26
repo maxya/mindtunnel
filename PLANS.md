@@ -1,6 +1,6 @@
 # Implementation roadmap
 
-P0 verified, P1–P3 accepted, P4 local engineering reviewed. External P4 gates open. P5 local preparation reviewed. Final verification next. Updated 2026-11-26. See [execution ledger](todo/mvp-implementation-plan.md) and [observed results](RESUME.md).
+P0 verified, P1–P3 accepted, P4 local engineering reviewed. External P4 gates open. P5 local preparation reviewed. Final local review PASS. Overall release gate open. Updated 2026-11-26. See [execution ledger](todo/mvp-implementation-plan.md) and [observed results](RESUME.md).
 
 Estimates are planning ranges, not commitments. Bootstrap (P0) is supplied. Target: focused public v0.1 in ~4–6 weeks of part-time work if quality gates pass; do not promise dates. No automatic pushes or license selection.
 

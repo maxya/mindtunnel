@@ -13,3 +13,7 @@ PLANS.md defines the gates. This ledger records the execution order for the auth
 | Final | Check every MVP item against the resulting repository. | Grunt handles packaging/functional verification and fixes. Sam conducts separate cross-phase review. Orchestrator reruns aggregate checks and records evidence, limitations, commit history and next action. |
 
 Use invented fixtures only. Keep credentials, private files, production data, external publication, outreach and deployments outside this run. Test the allowlisted interpreter and runtime confinement with defensive contract and permission checks. Prevent untrusted code execution. Do not silently send anything to a planner. Record incomplete external evidence without skipping acceptance gates; independent release preparation may proceed while external validation is pending.
+
+## Implementation results on 2026-11-26
+
+P0 verified. P1, P2 and P3 accepted. P4's local harness and P5's local preparation passed independent review. Final cross-component verification passed for the installed Linux implementation. External P4/P5 gates remain open. Resume with the numbered external tasks and commit references in RESUME.md. User approval is required before publication or license adoption.
