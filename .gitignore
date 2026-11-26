@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+private/
+work/
+*.sqlite*
+.DS_Store
+.coverage
+build/
+dist/
+*.egg-info/

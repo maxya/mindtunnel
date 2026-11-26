@@ -1,0 +1,5 @@
+private_category_CANARY,private_amount_CANARY,private_merchant_CANARY
+food,1000,MERCHANT_SECRET_X1
+food,1400,MERCHANT_SECRET_X2
+food,-200,MERCHANT_SECRET_X3
+transport,3000,MERCHANT_SECRET_X4

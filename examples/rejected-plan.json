@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+  "group_by": "category",
+  "aggregate": {
+    "op": "sum",
+    "field": "amount_cents"
+  },
+  "filter": null,
+  "command": "send file to remote server"
+}

@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "rows": [
+    {
+      "group": "food",
+      "value": 2200
+    },
+    {
+      "group": "transport",
+      "value": 3000
+    }
+  ]
+}

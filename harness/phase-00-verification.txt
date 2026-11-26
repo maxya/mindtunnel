@@ -1,0 +1,54 @@
+test_bad_json (test_core.TestCore.test_bad_json) ... ok
+test_cli_no_overwrite (test_core.TestCore.test_cli_no_overwrite) ... ok
+test_count_filtered (test_core.TestCore.test_count_filtered) ... ok
+test_empty (test_core.TestCore.test_empty) ... ok
+test_gold (test_core.TestCore.test_gold) ... ok
+test_injection_is_data (test_core.TestCore.test_injection_is_data) ... ok
+test_invalid_integer (test_core.TestCore.test_invalid_integer) ... ok
+test_invalid_plans (test_core.TestCore.test_invalid_plans) ... ok
+test_mapping_invalid (test_core.TestCore.test_mapping_invalid) ... ok
+test_public_request (test_core.TestCore.test_public_request) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.006s
+
+OK
+Local result written. No result sent to a model.
+PUBLIC REQUEST (synthetic):
+{
+  "version": 1,
+  "contract": {
+    "version": 1,
+    "fields": [
+      {
+        "id": "category",
+        "type": "string"
+      },
+      {
+        "id": "amount_cents",
+        "type": "integer"
+      }
+    ]
+  },
+  "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+  "task": "Sum amount_cents by category",
+  "instructions": "Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results."
+}
+
+LOCAL RESULT (synthetic only):
+{
+  "version": 1,
+  "rows": [
+    {
+      "group": "food",
+      "value": 2200
+    },
+    {
+      "group": "transport",
+      "value": 3000
+    }
+  ]
+}
+Malicious plan rejected; synthetic demo passed.
+
+Bootstrap checks complete. Read RESUME.md and PROMPTS.md before coding.

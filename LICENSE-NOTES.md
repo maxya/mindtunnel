@@ -1,0 +1,2 @@
+# License decision (pending owner approval)
+Proposed Apache-2.0 for code and specifications. Do not claim the project is licensed yet: no license grant has been made in this handoff. Before publishing, select a license, add its canonical full text, choose the copyright holder, review dependency licenses and update package metadata. All included sample data is invented for this package; do not add real private examples. Names and package availability are not cleared.

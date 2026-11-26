@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "fields": [
+    {
+      "id": "category",
+      "type": "string"
+    },
+    {
+      "id": "amount_cents",
+      "type": "integer"
+    }
+  ]
+}

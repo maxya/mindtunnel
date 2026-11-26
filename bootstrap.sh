@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")"
+python3 -c 'import sys; assert sys.version_info >= (3,11), "Python 3.11+ required"'
+python3 -m unittest discover -s tests -v
+python3 scripts/demo.py
+printf '\nBootstrap checks complete. Read RESUME.md and PROMPTS.md before coding.\n'

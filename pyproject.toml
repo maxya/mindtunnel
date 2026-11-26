@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mindtunnel"
+version = "0.0.1"
+description = "Local-first experimental reference implementation"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+mindtunnel = "mindtunnel.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["mindtunnel*"]
