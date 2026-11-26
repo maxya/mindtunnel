@@ -1,12 +1,12 @@
 # Five-person synthetic demo pilot
 
-Recruit five people outside the implementation team after the owner approves outreach. Give each person a fresh local checkout, the README and the invented examples. Ask them to use their own machine and an owner-controlled temporary directory. No account, real CSV or credentials are needed. Each facilitator uses an anonymous participant number. Keep notes locally and omit names, machine paths, terminal transcripts and personal data.
+Recruit five people outside the implementation team after the owner approves outreach. Give each person the self-contained participant ZIP and ask them to use their own machine and a temporary directory they control. The kit uses invented data and supplied plans and runs offline. Keep facilitator materials and the completed score sheet local. Omit names, machine paths, terminal transcripts and personal data. [Participant kit](../validation/pilot/participant-kit.zip) · [Facilitator guide](../validation/pilot/FACILITATOR.md) · [Scoring sheet](../validation/pilot/score-sheet.csv)
 
 ## Unaided tasks
 
-1. Start a timer at the README. Ask the participant to install or run from source, complete the demo and find the local report. Record time to first correct synthetic result, platform, whether setup succeeded and number of interventions. Record noncompletion too.
+1. Start a timer at the participant README. Ask the participant to install the bundled wheel, complete the count demo and find the local report. Record time to first correct synthetic result, platform, whether setup succeeded and number of interventions. Record noncompletion too.
 2. Ask which exact information the planner can see and how the participant would inspect it. Ask where the rows, mappings, results and errors go. Record their unaided explanation before teaching the answer.
-3. Ask what happens if the plan requests an unsupported operation, and how the ordinary executor's permissions differ from the optional isolated Linux path.
+3. Ask them to run the private aggregate exercise and try the supplied rejection example. Record the result, the rejection and any interventions.
 4. After scoring, explain the boundary and record one suggested improvement in paraphrase. Retain only consented anonymous observations.
 
 ## Scoring

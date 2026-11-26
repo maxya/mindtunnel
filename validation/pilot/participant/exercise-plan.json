@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "contract_sha256": "ad58e85dd2db9fb8f795d1b1682eda5d6cc5d793be93009e744656a63ea9b6a7",
+  "group_by": null,
+  "aggregate": {"op": "sum", "field": "units"},
+  "filter": {"field": "route", "eq": "east"}
+}

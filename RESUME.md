@@ -10,6 +10,8 @@ V1 was accepted at d18c4a0. V2 produced [two verified public request packets and
 
 V2 is checkpointed at 53af712. V3 closed the Linux 3.11 minimum-version gap, including wheel and source installs outside the checkout. Run the [native Apple Silicon verification](docs/PLATFORMS.md) and retain its JSON evidence. Hosted CI remains open.
 
+V3 is checkpointed at d92a878. The [participant kit](validation/pilot/participant-kit.zip) and [facilitator protocol](validation/pilot/FACILITATOR.md) are ready. The five-row scoring sheet is blank. Zero participants have been observed.
+
 ## Historical P0–P5 evidence on 2026-11-26
 
 | Phase | Evidence and remaining work |

@@ -1,0 +1,6 @@
+participant_id,attempted,operating_system,python_version,setup_outcome,count_correct,east_exercise_correct,rejection_correct,seconds_to_correct_count_report,session_elapsed_seconds,interventions_total,boundary_hints,describes_reviewed_public_request,describes_local_inputs_and_results,describes_no_automatic_feedback,boundary_outcome,anonymous_observation
+P01,,,,,,,,,,,,,,,,
+P02,,,,,,,,,,,,,,,,
+P03,,,,,,,,,,,,,,,,
+P04,,,,,,,,,,,,,,,,
+P05,,,,,,,,,,,,,,,,

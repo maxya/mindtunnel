@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "fields": [
+    {"id": "route", "type": "string"},
+    {"id": "units", "type": "integer"}
+  ]
+}
