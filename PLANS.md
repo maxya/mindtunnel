@@ -19,3 +19,7 @@ Review previous evidence -> small design and acceptance tests -> implement -> in
 
 ## Public positioning
 README demo: "This model has never seen the CSV. Here's the entire request. Here's a malicious plan rejected. Here's the result on my computer." Use a fake dataset and captured request. Ship conformance examples first. Reach privacy, local AI, data engineering and agent communities with measured results, not speculative marketing. Initial target 10 independent users and 100 GitHub stars; metrics are aspirational. Watch install success, repeat usage, independent integrations, issue quality. Avoid hosted service unless demand is proven.
+
+## Post-MVP validation
+
+The owner accepted P0–P5 local implementation and verification at 9284c1d. The active roadmap is V1–V5 in [validation after implementation](validation/README.md). Product and public release gates remain open.

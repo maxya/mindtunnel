@@ -1,0 +1,12 @@
+{
+  "protocol_version": 1,
+  "run_id": "owner_validation_01",
+  "comparator": "ir",
+  "retry_policy": "one_blind_retry_all_cases",
+  "evidence_kind": "manual_model_run",
+  "models": [
+    {"id":"frontier", "role":"frontier_cloud", "provider":"OWNER_SELECT", "model":"OWNER_SELECT_EXACT_MODEL_VERSION", "settings":{"temperature":0}},
+    {"id":"small", "role":"small_cloud", "provider":"OWNER_SELECT", "model":"OWNER_SELECT_EXACT_MODEL_VERSION", "settings":{"temperature":0}},
+    {"id":"local", "role":"local", "provider":"OWNER_SELECT_LOCAL_RUNTIME_VERSION", "model":"OWNER_SELECT_EXACT_MODEL_AND_QUANTIZATION", "settings":{"temperature":0}}
+  ]
+}

@@ -63,8 +63,9 @@ def run_plan(dataset, plan):
         return execute(dataset['contract'], dataset['mapping'], plan, path)
 
 
-def trusted_sql(dataset, case_id):
-    """Run only analyst-authored constants against an ephemeral synthetic table."""
+@contextmanager
+def synthetic_database(dataset):
+    """Create a query-only in-memory database from the frozen synthetic fixture."""
     fields = contract_fields(dataset['contract'])
     columns = ','.join('"' + name + '" ' + ('TEXT' if kind == 'string' else 'INTEGER')
                        for name, kind in fields.items())
@@ -74,6 +75,12 @@ def trusted_sql(dataset, case_id):
         connection.executemany('INSERT INTO sample VALUES (' + ','.join('?' for _ in fields) + ')',
                                [tuple(row[index] for index in indices) for row in dataset['csv_rows']])
         connection.execute('PRAGMA query_only=ON')
+        yield connection
+
+
+def trusted_sql(dataset, case_id):
+    """Run only analyst-authored constants against an ephemeral synthetic table."""
+    with synthetic_database(dataset) as connection:
         sql, parameters = QUERIES[case_id]
         rows = connection.execute(sql, parameters).fetchall()
     return {'version':1, 'rows':[{'group':group, 'value':value} for group, value in rows]}

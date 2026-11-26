@@ -40,3 +40,7 @@ The import scorer reports missing responses, invalid JSON/plans, structured unsu
 Unsupported tasks require the exact unsupported object. A well-formed executable plan on such a task is an unexpected plan. Returning unsupported on a feasible task is a planning failure. An invalid response and a valid plan that fails local execution have distinct classifications. All 30 feasible tasks remain in the denominator, including missing or rejected responses.
 
 The 85% model-quality gate remains pending an actual frozen external or local model run. The mock's 0/30 result shows its unsupported natural-language coverage. It supplies no evidence about frontier-model utility. Outside testers, human understanding of the boundary, macOS installation evidence, release decisions, and runtime isolation evidence are separate requirements. Passing this offline harness alone cannot close those gates.
+
+## Manual multi-model validation
+
+The registered owner-side comparison workflow is documented in [VALIDATION.md](VALIDATION.md). It supports explicit model classes, exact public export, a predeclared blind retry, raw response hashes, validated plans, unknown-aware metrics, and a separately constrained SQL-generation comparator evaluated through query-only synthetic SQLite. Its commands perform local preparation and scoring. Actual model observations require owner-performed manual runs.

@@ -16,3 +16,7 @@ If cloud plan success is below 85% on supported cases after reasonable prompt de
 ## Recorded local measurements
 
 The [evaluation harness and scoring instructions](../harness/evaluation/README.md) cover the frozen tasks, raw results and blinded public requests. The [workflow comparison](WORKFLOW-COMPARISON.md) measures disclosed categories and bytes. The [pilot protocol](PILOT.md) defines participant tasks and unaided scoring. External model and participant measurements are pending.
+
+## Real-model study
+
+Use the [manual collection and scoring workflow](../harness/evaluation/VALIDATION.md) and the [operator handoff](../validation/MODEL-RUNS.md). Each model is preregistered and receives one public request per fresh tool-free interaction. Reports keep first-attempt results, retry outcomes and unknown metadata separate. The SQL arm accepts a restricted grammar and compares results using trusted parameterized queries on a synthetic in-memory database.

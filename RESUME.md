@@ -1,8 +1,12 @@
 # Resume MindTunnel
 
-MindTunnel is the product and the Python package and CLI are both named mindtunnel. Canonical repository is https://github.com/maxya/mindtunnel. The authorized roadmap covers P1–P5 and final verification. P6 requires separate approval. Keep synthetic inputs only in agent sessions.
+MindTunnel is the product and the Python package and CLI are both named mindtunnel. Canonical repository is https://github.com/maxya/mindtunnel. The owner accepted local P0–P5 engineering at 9284c1d. The active validation roadmap covers V1–V5. P6 requires separate approval. Keep synthetic inputs only in agent sessions.
 
-## Observed progress on 2026-11-26
+## Post-MVP checkpoint
+
+The validation work starts from 9284c1d. Keep the frozen corpus and original 85% threshold fixed. The operator-side protocol is in [manual model evaluation](harness/evaluation/VALIDATION.md). The run order and requirements are in the [validation ledger](validation/README.md).
+
+## Historical P0–P5 evidence on 2026-11-26
 
 | Phase | Evidence and remaining work |
 |---|---|
