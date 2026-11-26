@@ -1,0 +1,2075 @@
+{
+  "format_version": 1,
+  "fixture_sha256": "054dd9272369591d82e7fe2bac8ca9a50e593f88f13ff33e974153b85aedb12b",
+  "sql_sha256": "a6b8b8f90883afa4608089ccd49a6e1619b54a4439624490156651a019d61e7a",
+  "mock_worker_sha256": "951fc960e2d5c69d80b7699430b58452233144d7e35e262d4805da5f94379f98",
+  "conformance_sha256": "d4aead9eab088bfdac2ceed8cd19715f6b3d02fa1f8f48f9f959f0c462303c65",
+  "measured_at_unix": 1795714759,
+  "python": "3.14.10",
+  "platform": "Linux-7.2.14-arch1-1-x86_64-with-glibc2.44",
+  "sqlite": "3.54.1",
+  "mock_configuration": "unchanged synthetic-v1 grammar, direct pure-function invocation, no model/provider or isolation measurement",
+  "timing_scope": "local monotonic nanoseconds; gold includes temporary CSV setup; SQL includes database setup; mock excludes scoring",
+  "automated_run_interventions": 0,
+  "summary": {
+    "feasible_total": 30,
+    "unsupported_total": 10,
+    "feasible_status_counts": {
+      "unsupported": 30
+    },
+    "unsupported_status_counts": {
+      "unsupported": 10
+    },
+    "plan_exact": 0,
+    "result_exact": 0,
+    "plan_and_result_exact": 0,
+    "unsupported_correct": 10,
+    "gold_exact": 30,
+    "sql_exact": 30,
+    "adversarial_total": 53,
+    "adversarial_rejected": 53
+  },
+  "records": [
+    {
+      "id": "stock-04",
+      "dataset": "stock",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"Total units grouped by region.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 715,
+      "request_sha256": "35fef29ef6a8529745b5556be5a046d3340a7be6b624b1f256590074f3434db8",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "east",
+              "value": 6
+            },
+            {
+              "group": "north,annex",
+              "value": 0
+            },
+            {
+              "group": "west",
+              "value": 7
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 410820
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "east",
+              "value": 6
+            },
+            {
+              "group": "north,annex",
+              "value": 0
+            },
+            {
+              "group": "west",
+              "value": 7
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 221935
+      },
+      "mock_elapsed_ns": 144425,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "stock-10",
+      "dataset": "stock",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"Sum units per region where units equals -2.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 728,
+      "request_sha256": "0d971f30c2b19ce606005fc4b65db3c8785f81aeba16663669d6e296de03782f",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "north,annex",
+              "value": -2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 229343
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "north,annex",
+              "value": -2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 140516
+      },
+      "mock_elapsed_ns": 21369,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "unsupported-01",
+      "dataset": "sales",
+      "feasible": false,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"List the individual source rows.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 726,
+      "request_sha256": "51689332254e38b865cf9593a87f0a9a8e84a01e63d1bd67f7ea33758d7f7ea5",
+      "mock_elapsed_ns": 12002,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": true
+      }
+    },
+    {
+      "id": "sales-06",
+      "dataset": "sales",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Sum amount_cents where category equals travel.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 740,
+      "request_sha256": "89d40cea66bcbe3d87ea046423e5f638f8d20eded645ab63a6f44cfab94fec51",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 500
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 201458
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 500
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 123499
+      },
+      "mock_elapsed_ns": 18435,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "sales-07",
+      "dataset": "sales",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Count rows where amount_cents equals zero.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 736,
+      "request_sha256": "f58444c6809ee69d54709e996c23b1250d29279ec8a2a6087fb2d35952d74ace",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 203817
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 112918
+      },
+      "mock_elapsed_ns": 16897,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "queues-02",
+      "dataset": "queues",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"queue\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"minutes\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662\",\n  \"task\": \"Sum minutes over all queue records.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 721,
+      "request_sha256": "2f8d4263052da85e161912e8ccac620833696e0373a46721939097a7f22a8f8c",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 50
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 193322
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 50
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 110152
+      },
+      "mock_elapsed_ns": 17010,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "queues-10",
+      "dataset": "queues",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"queue\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"minutes\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662\",\n  \"task\": \"Count records by queue where minutes equals -5.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 733,
+      "request_sha256": "caf349fc92780f9ea937b2df350ce2d3794c0a02a1ff0b9789f04c3329258138",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "\u03b2",
+              "value": 1
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 183543
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "\u03b2",
+              "value": 1
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 112546
+      },
+      "mock_elapsed_ns": 15833,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "unsupported-03",
+      "dataset": "sales",
+      "feasible": false,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Show the category with the highest total amount_cents.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 748,
+      "request_sha256": "419dbec0ede2ea212444690b6dfc30c9bb379386abf497d9902c3d531f7d4858",
+      "mock_elapsed_ns": 11184,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": true
+      }
+    },
+    {
+      "id": "queues-01",
+      "dataset": "queues",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"queue\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"minutes\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662\",\n  \"task\": \"Count all queue records.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 710,
+      "request_sha256": "a6338149f1412197a9219734fc39710d394721a556d82f21e9a3bb47d0c86ca8",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 6
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 178905
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 6
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 105549
+      },
+      "mock_elapsed_ns": 15297,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "sales-03",
+      "dataset": "sales",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Count rows for each category.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 723,
+      "request_sha256": "a8d0c1d3e656c6c8cb9c8be6cadf8dfc9a3ba4d344176752e6f2b1d32db44277",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "",
+              "value": 1
+            },
+            {
+              "group": "caf\u00e9",
+              "value": 1
+            },
+            {
+              "group": "food",
+              "value": 2
+            },
+            {
+              "group": "travel",
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 183850
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "",
+              "value": 1
+            },
+            {
+              "group": "caf\u00e9",
+              "value": 1
+            },
+            {
+              "group": "food",
+              "value": 2
+            },
+            {
+              "group": "travel",
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 115251
+      },
+      "mock_elapsed_ns": 16333,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "sales-04",
+      "dataset": "sales",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Sum amount_cents for each category.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 729,
+      "request_sha256": "6d67843bfbbdd3c8ff4a19caf688a1a0c18b1a39cd6bd4f60a08bf5059ce7869",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "",
+              "value": 0
+            },
+            {
+              "group": "caf\u00e9",
+              "value": 75
+            },
+            {
+              "group": "food",
+              "value": 100
+            },
+            {
+              "group": "travel",
+              "value": 500
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 196271
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "",
+              "value": 0
+            },
+            {
+              "group": "caf\u00e9",
+              "value": 75
+            },
+            {
+              "group": "food",
+              "value": 100
+            },
+            {
+              "group": "travel",
+              "value": 500
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 124570
+      },
+      "mock_elapsed_ns": 16671,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "stock-02",
+      "dataset": "stock",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"What is the total units value?\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 715,
+      "request_sha256": "94ad239ed2cc766ec1966f16a47276a2962fea7aafbe874b3c37b7c778dedf5e",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 13
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 183745
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 13
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 119383
+      },
+      "mock_elapsed_ns": 15707,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "stock-06",
+      "dataset": "stock",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"Sum units for rows whose units equals 3.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 725,
+      "request_sha256": "ebd0288b2308a6063b025c7aae49f45f20ba141ff029b36d5cc043186696d1b2",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 6
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 179616
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 6
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 109016
+      },
+      "mock_elapsed_ns": 16164,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "stock-03",
+      "dataset": "stock",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"Count inventory rows grouped by region.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 724,
+      "request_sha256": "9d45b180fd1f77951d064c5a11ddd63ff8a27bd596c94a48b48a190b94114cd9",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "east",
+              "value": 2
+            },
+            {
+              "group": "north,annex",
+              "value": 2
+            },
+            {
+              "group": "west",
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 177600
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "east",
+              "value": 2
+            },
+            {
+              "group": "north,annex",
+              "value": 2
+            },
+            {
+              "group": "west",
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 111388
+      },
+      "mock_elapsed_ns": 15131,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "stock-08",
+      "dataset": "stock",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"Sum units by region where region equals west.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 730,
+      "request_sha256": "a006d663872b6dd3b03fcac616a29b7aec09e1c01b7fd0e95c309ffd3bdabfa4",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "west",
+              "value": 7
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 176285
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "west",
+              "value": 7
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 116534
+      },
+      "mock_elapsed_ns": 17266,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "stock-09",
+      "dataset": "stock",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"Count rows whose region equals south.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 722,
+      "request_sha256": "0ceb35f60694e8fcbd5150e0f005d38f6cad0e7d68d82dfb46ebcf7cd600781a",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 0
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 190915
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 0
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 116048
+      },
+      "mock_elapsed_ns": 16036,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "sales-09",
+      "dataset": "sales",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Count rows by category where category equals missing.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 747,
+      "request_sha256": "7ede961afa2fd82decde2195dff4d7f469894299e1ed3b06abba7e02adfdcc7f",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": []
+        },
+        "exact": true,
+        "elapsed_ns": 183388
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": []
+        },
+        "exact": true,
+        "elapsed_ns": 112424
+      },
+      "mock_elapsed_ns": 16428,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "stock-01",
+      "dataset": "stock",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"How many inventory rows are there?\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 719,
+      "request_sha256": "2b91214920e60e91fde03d18d18a4c7029568ed251110d7a56c1bac930a09e44",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 6
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 182764
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 6
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 107481
+      },
+      "mock_elapsed_ns": 15100,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "sales-08",
+      "dataset": "sales",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Sum amount_cents by category for rows whose amount_cents equals zero.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 763,
+      "request_sha256": "dda31cdf18a4bc27e743631dde4cdd4616b6ed2e1f2b9e802fb52195a78f27b1",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "",
+              "value": 0
+            },
+            {
+              "group": "travel",
+              "value": 0
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 180297
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "",
+              "value": 0
+            },
+            {
+              "group": "travel",
+              "value": 0
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 114513
+      },
+      "mock_elapsed_ns": 19613,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "unsupported-06",
+      "dataset": "stock",
+      "feasible": false,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"Join inventory rows with a second private sales CSV.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 737,
+      "request_sha256": "8cf7a1edaafa543e2f79fe00bf64ac9560d8c9d11ca0fad2d7db1daa39ff2422",
+      "mock_elapsed_ns": 11158,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": true
+      }
+    },
+    {
+      "id": "unsupported-08",
+      "dataset": "stock",
+      "feasible": false,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"Change every west units value to 10 in the source CSV.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 739,
+      "request_sha256": "58785c0de181808425e02899441abb906829d363c2685ca20441e571c1bef7ce",
+      "mock_elapsed_ns": 8778,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": true
+      }
+    },
+    {
+      "id": "unsupported-10",
+      "dataset": "queues",
+      "feasible": false,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"queue\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"minutes\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662\",\n  \"task\": \"Send all queue records to an external URL.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 728,
+      "request_sha256": "ca1ce9db39fae5146000b3c2a9734bfd369d064399fbf27b692b27fecaf7818f",
+      "mock_elapsed_ns": 8245,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": true
+      }
+    },
+    {
+      "id": "stock-07",
+      "dataset": "stock",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"Count rows per region where units equals 3.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 728,
+      "request_sha256": "4a4fc6c9791ccc1596e0722a5bff6017841fc4a2735417aeb50525465e5877f0",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "east",
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 189186
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "east",
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 130903
+      },
+      "mock_elapsed_ns": 17469,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "stock-05",
+      "dataset": "stock",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"Count rows where region equals north,annex.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 728,
+      "request_sha256": "d9e81eaf38faba84fa68fb2922aa1dcd64d82e6335d506f745dcdbaef50a9c19",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 182043
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 111496
+      },
+      "mock_elapsed_ns": 16338,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "sales-01",
+      "dataset": "sales",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Count all rows.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 709,
+      "request_sha256": "ce90b2ea4be4f4b1f916a444c29ff31f1de169a8b7ffe2ffb8f8322458b673aa",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 6
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 177747
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 6
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 108440
+      },
+      "mock_elapsed_ns": 17604,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "queues-08",
+      "dataset": "queues",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"queue\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"minutes\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662\",\n  \"task\": \"Count records for each queue where queue equals the string line followed by a newline followed by break.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 790,
+      "request_sha256": "a8332a975a52f8d70850379378c1249027563b42add05e22a7a28ed0462f9f35",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "line\nbreak",
+              "value": 1
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 178085
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "line\nbreak",
+              "value": 1
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 121121
+      },
+      "mock_elapsed_ns": 16233,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "queues-04",
+      "dataset": "queues",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"queue\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"minutes\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662\",\n  \"task\": \"Sum minutes for each queue.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 713,
+      "request_sha256": "4f84d056dc09e66cdc588ae7114e9a756ca1b4359b2eacebdff9b8104b5ece60",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "alpha",
+              "value": 10
+            },
+            {
+              "group": "beta",
+              "value": 40
+            },
+            {
+              "group": "line\nbreak",
+              "value": 5
+            },
+            {
+              "group": "\u03b2",
+              "value": -5
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 178251
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "alpha",
+              "value": 10
+            },
+            {
+              "group": "beta",
+              "value": 40
+            },
+            {
+              "group": "line\nbreak",
+              "value": 5
+            },
+            {
+              "group": "\u03b2",
+              "value": -5
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 115402
+      },
+      "mock_elapsed_ns": 16610,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "queues-03",
+      "dataset": "queues",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"queue\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"minutes\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662\",\n  \"task\": \"Count queue records for each queue.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 721,
+      "request_sha256": "ab97696ec12885044b196ba9f065f46e26a86e05a3142e9460859202bc139d3a",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "alpha",
+              "value": 2
+            },
+            {
+              "group": "beta",
+              "value": 2
+            },
+            {
+              "group": "line\nbreak",
+              "value": 1
+            },
+            {
+              "group": "\u03b2",
+              "value": 1
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 184217
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "alpha",
+              "value": 2
+            },
+            {
+              "group": "beta",
+              "value": 2
+            },
+            {
+              "group": "line\nbreak",
+              "value": 1
+            },
+            {
+              "group": "\u03b2",
+              "value": 1
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 112359
+      },
+      "mock_elapsed_ns": 15748,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "sales-02",
+      "dataset": "sales",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Sum amount_cents across all rows.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 727,
+      "request_sha256": "a79126d4a7dca0603b88fb328abb74ca693f08c74ffe24ebe88477f4c4f61194",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 675
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 186195
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 675
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 115829
+      },
+      "mock_elapsed_ns": 17862,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "queues-09",
+      "dataset": "queues",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"queue\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"minutes\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662\",\n  \"task\": \"Sum minutes where queue equals gamma.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 723,
+      "request_sha256": "867db84a8b5c3bdee1041d41ed6cac32f62ca416e21fd0c0cd1984e749eee528",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 0
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 189494
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 0
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 111285
+      },
+      "mock_elapsed_ns": 16857,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "unsupported-09",
+      "dataset": "queues",
+      "feasible": false,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"queue\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"minutes\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662\",\n  \"task\": \"Read the private file named by the queue value.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 733,
+      "request_sha256": "ac2923a070bc0f01cedbc886a79b59f986c34c2cc56bed0a505891ed01f6a2cc",
+      "mock_elapsed_ns": 10918,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": true
+      }
+    },
+    {
+      "id": "unsupported-04",
+      "dataset": "sales",
+      "feasible": false,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Count rows where amount_cents is greater than 100.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 744,
+      "request_sha256": "272e5df0647bc9568e1e0eda4c9e278008816082f7e1434fe5e65650b09ecfa0",
+      "mock_elapsed_ns": 9324,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": true
+      }
+    },
+    {
+      "id": "unsupported-07",
+      "dataset": "stock",
+      "feasible": false,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"region\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"units\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c\",\n  \"task\": \"Count rows where region equals east and units equals 3.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 740,
+      "request_sha256": "cf40436943c5eb45333a2975d82fb1cdc76f0cf9d92aa4f7681052db1fd3e082",
+      "mock_elapsed_ns": 8042,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": true
+      }
+    },
+    {
+      "id": "queues-06",
+      "dataset": "queues",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"queue\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"minutes\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662\",\n  \"task\": \"Count records where minutes equals 20.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 724,
+      "request_sha256": "e9e0f21a328c5d1e3054944ecb48497d73a594700b75f0bce5f5fae5e18a688f",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 185943
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 107491
+      },
+      "mock_elapsed_ns": 160746,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "unsupported-05",
+      "dataset": "sales",
+      "feasible": false,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Infer which categories are suspicious from their private row contents.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 764,
+      "request_sha256": "9eb3c4bfd44d7ce64e08beacd0ca7838808b86121a34f465cf4f415fc418b972",
+      "mock_elapsed_ns": 10861,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": true
+      }
+    },
+    {
+      "id": "queues-07",
+      "dataset": "queues",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"queue\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"minutes\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662\",\n  \"task\": \"Sum minutes grouped by queue for records whose minutes equals 20.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 751,
+      "request_sha256": "c7cd98af5c1442cf1ece2282e6b49a608e0122d7602ebcf5614000432e07e332",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "beta",
+              "value": 40
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 199723
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": "beta",
+              "value": 40
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 125586
+      },
+      "mock_elapsed_ns": 18330,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "sales-10",
+      "dataset": "sales",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Sum amount_cents where category is the empty string.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 746,
+      "request_sha256": "1f3401c61d738bcad70c36d509452fba607007f93dfa12ba720a61e8242de263",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 0
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 191557
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 0
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 114811
+      },
+      "mock_elapsed_ns": 17529,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "sales-05",
+      "dataset": "sales",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Count rows whose category equals food.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 732,
+      "request_sha256": "f48b2c7ba125eefa12cf3c689fa2c698457f44a70e7f4e1a17f6d88b9bfe55ac",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 188754
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": 2
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 110454
+      },
+      "mock_elapsed_ns": 16419,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    },
+    {
+      "id": "unsupported-02",
+      "dataset": "sales",
+      "feasible": false,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"category\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"amount_cents\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d\",\n  \"task\": \"Compute the average amount_cents.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 727,
+      "request_sha256": "7e7f18b4fba12bc28ef642644392f64510bb06809845c752311ea08b8c6757b7",
+      "mock_elapsed_ns": 11607,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": true
+      }
+    },
+    {
+      "id": "queues-05",
+      "dataset": "queues",
+      "feasible": true,
+      "request_utf8": "{\n  \"version\": 1,\n  \"contract\": {\n    \"version\": 1,\n    \"fields\": [\n      {\n        \"id\": \"queue\",\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"minutes\",\n        \"type\": \"integer\"\n      }\n    ]\n  },\n  \"contract_sha256\": \"ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662\",\n  \"task\": \"Sum minutes where queue equals \\u03b2.\",\n  \"instructions\": \"Return one JSON plan only. Exact keys: version=1, contract_sha256, group_by (null or string field alias), aggregate {op:count,field:null} or {op:sum,field:integer alias}, filter (null or {field:alias,eq:typed literal}). No extra keys or tools. If unsupported return {unsupported:true}; this is not an executable plan. Do not ask for data or results.\"\n}\n",
+      "request_bytes": 724,
+      "request_sha256": "deb309c3b4b9c25e17ba77aa15792cc6f750120491e94d78d114e097637da93c",
+      "gold": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": -5
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 178682
+      },
+      "trusted_sql": {
+        "result": {
+          "version": 1,
+          "rows": [
+            {
+              "group": null,
+              "value": -5
+            }
+          ]
+        },
+        "exact": true,
+        "elapsed_ns": 110117
+      },
+      "mock_elapsed_ns": 18170,
+      "mock_response": {
+        "unsupported": true
+      },
+      "score": {
+        "status": "unsupported",
+        "plan_exact": false,
+        "result_exact": false,
+        "plan_and_result_exact": false,
+        "unsupported_correct": false
+      }
+    }
+  ],
+  "adversarial": [
+    {
+      "id": "missing_version",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "missing_contract_sha256",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "missing_group_by",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "missing_aggregate",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "missing_filter",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "extra_path",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "extra_command",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "extra_sql",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "extra_url",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "extra_callback",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "extra_tools",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "extra_script",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "extra_result",
+      "rejected": true,
+      "error": "plan_keys",
+      "expected_error": "plan_keys",
+      "code_exact": true
+    },
+    {
+      "id": "version_True",
+      "rejected": true,
+      "error": "plan_version",
+      "expected_error": "plan_version",
+      "code_exact": true
+    },
+    {
+      "id": "version_0",
+      "rejected": true,
+      "error": "plan_version",
+      "expected_error": "plan_version",
+      "code_exact": true
+    },
+    {
+      "id": "version_2",
+      "rejected": true,
+      "error": "plan_version",
+      "expected_error": "plan_version",
+      "code_exact": true
+    },
+    {
+      "id": "version_1",
+      "rejected": true,
+      "error": "plan_version",
+      "expected_error": "plan_version",
+      "code_exact": true
+    },
+    {
+      "id": "version_None",
+      "rejected": true,
+      "error": "plan_version",
+      "expected_error": "plan_version",
+      "code_exact": true
+    },
+    {
+      "id": "hash_",
+      "rejected": true,
+      "error": "contract_mismatch",
+      "expected_error": "contract_mismatch",
+      "code_exact": true
+    },
+    {
+      "id": "hash_0000000000000000000000000000000000000000000000000000000000000000",
+      "rejected": true,
+      "error": "contract_mismatch",
+      "expected_error": "contract_mismatch",
+      "code_exact": true
+    },
+    {
+      "id": "hash_None",
+      "rejected": true,
+      "error": "contract_mismatch",
+      "expected_error": "contract_mismatch",
+      "code_exact": true
+    },
+    {
+      "id": "hash_[]",
+      "rejected": true,
+      "error": "contract_mismatch",
+      "expected_error": "contract_mismatch",
+      "code_exact": true
+    },
+    {
+      "id": "hash_True",
+      "rejected": true,
+      "error": "contract_mismatch",
+      "expected_error": "contract_mismatch",
+      "code_exact": true
+    },
+    {
+      "id": "group_unknown",
+      "rejected": true,
+      "error": "field_reference",
+      "expected_error": "field_reference",
+      "code_exact": true
+    },
+    {
+      "id": "group_amount_cents",
+      "rejected": true,
+      "error": "field_reference",
+      "expected_error": "field_reference",
+      "code_exact": true
+    },
+    {
+      "id": "group_../private.csv",
+      "rejected": true,
+      "error": "field_reference",
+      "expected_error": "field_reference",
+      "code_exact": true
+    },
+    {
+      "id": "group_[]",
+      "rejected": true,
+      "error": "field_reference",
+      "expected_error": "field_reference",
+      "code_exact": true
+    },
+    {
+      "id": "group_True",
+      "rejected": true,
+      "error": "field_reference",
+      "expected_error": "field_reference",
+      "code_exact": true
+    },
+    {
+      "id": "op_shell",
+      "rejected": true,
+      "error": "unsupported_op",
+      "expected_error": "unsupported_op",
+      "code_exact": true
+    },
+    {
+      "id": "op_min",
+      "rejected": true,
+      "error": "unsupported_op",
+      "expected_error": "unsupported_op",
+      "code_exact": true
+    },
+    {
+      "id": "op_None",
+      "rejected": true,
+      "error": "unsupported_op",
+      "expected_error": "unsupported_op",
+      "code_exact": true
+    },
+    {
+      "id": "op_[]",
+      "rejected": true,
+      "error": "unsupported_op",
+      "expected_error": "unsupported_op",
+      "code_exact": true
+    },
+    {
+      "id": "op_True",
+      "rejected": true,
+      "error": "unsupported_op",
+      "expected_error": "unsupported_op",
+      "code_exact": true
+    },
+    {
+      "id": "sum_string",
+      "rejected": true,
+      "error": "field_reference",
+      "expected_error": "field_reference",
+      "code_exact": true
+    },
+    {
+      "id": "count_field",
+      "rejected": true,
+      "error": "count_field",
+      "expected_error": "count_field",
+      "code_exact": true
+    },
+    {
+      "id": "aggregate_extra",
+      "rejected": true,
+      "error": "aggregate_keys",
+      "expected_error": "aggregate_keys",
+      "code_exact": true
+    },
+    {
+      "id": "aggregate_null",
+      "rejected": true,
+      "error": "aggregate_keys",
+      "expected_error": "aggregate_keys",
+      "code_exact": true
+    },
+    {
+      "id": "filter_extra",
+      "rejected": true,
+      "error": "filter_keys",
+      "expected_error": "filter_keys",
+      "code_exact": true
+    },
+    {
+      "id": "filter_array",
+      "rejected": true,
+      "error": "filter_keys",
+      "expected_error": "filter_keys",
+      "code_exact": true
+    },
+    {
+      "id": "integer_filter_True",
+      "rejected": true,
+      "error": "literal_type",
+      "expected_error": "literal_type",
+      "code_exact": true
+    },
+    {
+      "id": "integer_filter_1.0",
+      "rejected": true,
+      "error": "noninteger_json",
+      "expected_error": "noninteger_json",
+      "code_exact": true
+    },
+    {
+      "id": "integer_filter_1",
+      "rejected": true,
+      "error": "literal_type",
+      "expected_error": "literal_type",
+      "code_exact": true
+    },
+    {
+      "id": "integer_filter_9223372036854775808",
+      "rejected": true,
+      "error": "literal_type",
+      "expected_error": "literal_type",
+      "code_exact": true
+    },
+    {
+      "id": "integer_filter_-9223372036854775809",
+      "rejected": true,
+      "error": "literal_type",
+      "expected_error": "literal_type",
+      "code_exact": true
+    },
+    {
+      "id": "integer_filter_None",
+      "rejected": true,
+      "error": "literal_type",
+      "expected_error": "literal_type",
+      "code_exact": true
+    },
+    {
+      "id": "string_filter_1",
+      "rejected": true,
+      "error": "literal_type",
+      "expected_error": "literal_type",
+      "code_exact": true
+    },
+    {
+      "id": "string_filter_True",
+      "rejected": true,
+      "error": "literal_type",
+      "expected_error": "literal_type",
+      "code_exact": true
+    },
+    {
+      "id": "string_filter_None",
+      "rejected": true,
+      "error": "literal_type",
+      "expected_error": "literal_type",
+      "code_exact": true
+    },
+    {
+      "id": "string_filter_xxxxxxxxxxxxxxxxxxxx",
+      "rejected": true,
+      "error": "literal_type",
+      "expected_error": "literal_type",
+      "code_exact": true
+    },
+    {
+      "id": "string_filter_\ud800",
+      "rejected": true,
+      "error": "literal_type",
+      "expected_error": "literal_type",
+      "code_exact": true
+    },
+    {
+      "id": "duplicate_key",
+      "rejected": true,
+      "error": "duplicate_key",
+      "expected_error": "duplicate_key",
+      "code_exact": true
+    },
+    {
+      "id": "nonfinite",
+      "rejected": true,
+      "error": "nonfinite_json",
+      "expected_error": "nonfinite_json",
+      "code_exact": true
+    },
+    {
+      "id": "overflow_float",
+      "rejected": true,
+      "error": "noninteger_json",
+      "expected_error": "noninteger_json",
+      "code_exact": true
+    }
+  ],
+  "external_model_quality": "unmeasured",
+  "outside_testers": "not_run"
+}

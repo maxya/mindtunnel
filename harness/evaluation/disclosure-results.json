@@ -1,0 +1,286 @@
+{
+  "method": "Local serialization of explicit public planning and direct CSV-answer messages",
+  "live_provider_calls": 0,
+  "cases": [
+    {
+      "case": "sales-01",
+      "plan_request_bytes": 709,
+      "direct_message_bytes": 346,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "sales-02",
+      "plan_request_bytes": 727,
+      "direct_message_bytes": 364,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "sales-03",
+      "plan_request_bytes": 723,
+      "direct_message_bytes": 360,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "sales-04",
+      "plan_request_bytes": 729,
+      "direct_message_bytes": 366,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "sales-05",
+      "plan_request_bytes": 732,
+      "direct_message_bytes": 369,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "sales-06",
+      "plan_request_bytes": 740,
+      "direct_message_bytes": 377,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "sales-07",
+      "plan_request_bytes": 736,
+      "direct_message_bytes": 373,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "sales-08",
+      "plan_request_bytes": 763,
+      "direct_message_bytes": 400,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "sales-09",
+      "plan_request_bytes": 747,
+      "direct_message_bytes": 384,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "sales-10",
+      "plan_request_bytes": 746,
+      "direct_message_bytes": 383,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "unsupported-01",
+      "plan_request_bytes": 726,
+      "direct_message_bytes": 363,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "unsupported-02",
+      "plan_request_bytes": 727,
+      "direct_message_bytes": 364,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "unsupported-03",
+      "plan_request_bytes": 748,
+      "direct_message_bytes": 385,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "unsupported-04",
+      "plan_request_bytes": 744,
+      "direct_message_bytes": 381,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "unsupported-05",
+      "plan_request_bytes": 764,
+      "direct_message_bytes": 401,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "stock-01",
+      "plan_request_bytes": 719,
+      "direct_message_bytes": 363,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "stock-02",
+      "plan_request_bytes": 715,
+      "direct_message_bytes": 359,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "stock-03",
+      "plan_request_bytes": 724,
+      "direct_message_bytes": 368,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "stock-04",
+      "plan_request_bytes": 715,
+      "direct_message_bytes": 359,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "stock-05",
+      "plan_request_bytes": 728,
+      "direct_message_bytes": 372,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "stock-06",
+      "plan_request_bytes": 725,
+      "direct_message_bytes": 369,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "stock-07",
+      "plan_request_bytes": 728,
+      "direct_message_bytes": 372,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "stock-08",
+      "plan_request_bytes": 730,
+      "direct_message_bytes": 374,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "stock-09",
+      "plan_request_bytes": 722,
+      "direct_message_bytes": 366,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "stock-10",
+      "plan_request_bytes": 728,
+      "direct_message_bytes": 372,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "unsupported-06",
+      "plan_request_bytes": 737,
+      "direct_message_bytes": 381,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "unsupported-07",
+      "plan_request_bytes": 740,
+      "direct_message_bytes": 384,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "unsupported-08",
+      "plan_request_bytes": 739,
+      "direct_message_bytes": 383,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "queues-01",
+      "plan_request_bytes": 710,
+      "direct_message_bytes": 352,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "queues-02",
+      "plan_request_bytes": 721,
+      "direct_message_bytes": 363,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "queues-03",
+      "plan_request_bytes": 721,
+      "direct_message_bytes": 363,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "queues-04",
+      "plan_request_bytes": 713,
+      "direct_message_bytes": 355,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "queues-05",
+      "plan_request_bytes": 724,
+      "direct_message_bytes": 366,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "queues-06",
+      "plan_request_bytes": 724,
+      "direct_message_bytes": 366,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "queues-07",
+      "plan_request_bytes": 751,
+      "direct_message_bytes": 393,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "queues-08",
+      "plan_request_bytes": 790,
+      "direct_message_bytes": 432,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "queues-09",
+      "plan_request_bytes": 723,
+      "direct_message_bytes": 365,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "queues-10",
+      "plan_request_bytes": 733,
+      "direct_message_bytes": 375,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "unsupported-09",
+      "plan_request_bytes": 733,
+      "direct_message_bytes": 375,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    },
+    {
+      "case": "unsupported-10",
+      "plan_request_bytes": 728,
+      "direct_message_bytes": 370,
+      "source_rows_in_direct_message": 6,
+      "source_rows_attached_to_plan_request": 0
+    }
+  ]
+}

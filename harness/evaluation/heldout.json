@@ -1,0 +1,1063 @@
+{
+  "format_version": 1,
+  "frozen_on": "2026-11-26",
+  "label_author": "sam independent reviewer",
+  "method": "Hand-authored synthetic rows, intended v1 plans and manually calculated expected results. No executor used to produce labels. Questions and public contracts alone are eligible planner inputs. CSV rows, mappings, plans and expected results are evaluation-only. This is an offline gold fixture, not measured model performance.",
+  "datasets": [
+    {
+      "id": "sales",
+      "contract": {
+        "version": 1,
+        "fields": [
+          {
+            "id": "category",
+            "type": "string"
+          },
+          {
+            "id": "amount_cents",
+            "type": "integer"
+          }
+        ]
+      },
+      "mapping": {
+        "category": "SYNTH_HEADER_CATEGORY",
+        "amount_cents": "SYNTH_HEADER_CENTS"
+      },
+      "csv_headers": [
+        "SYNTH_HEADER_CATEGORY",
+        "SYNTH_HEADER_CENTS"
+      ],
+      "csv_rows": [
+        [
+          "food",
+          120
+        ],
+        [
+          "travel",
+          500
+        ],
+        [
+          "food",
+          -20
+        ],
+        [
+          "",
+          0
+        ],
+        [
+          "café",
+          75
+        ],
+        [
+          "travel",
+          0
+        ]
+      ],
+      "cases": [
+        {
+          "id": "sales-01",
+          "task": "Count all rows.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+            "group_by": null,
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": null
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 6
+              }
+            ]
+          }
+        },
+        {
+          "id": "sales-02",
+          "task": "Sum amount_cents across all rows.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+            "group_by": null,
+            "aggregate": {
+              "op": "sum",
+              "field": "amount_cents"
+            },
+            "filter": null
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 675
+              }
+            ]
+          }
+        },
+        {
+          "id": "sales-03",
+          "task": "Count rows for each category.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+            "group_by": "category",
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": null
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "",
+                "value": 1
+              },
+              {
+                "group": "café",
+                "value": 1
+              },
+              {
+                "group": "food",
+                "value": 2
+              },
+              {
+                "group": "travel",
+                "value": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "sales-04",
+          "task": "Sum amount_cents for each category.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+            "group_by": "category",
+            "aggregate": {
+              "op": "sum",
+              "field": "amount_cents"
+            },
+            "filter": null
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "",
+                "value": 0
+              },
+              {
+                "group": "café",
+                "value": 75
+              },
+              {
+                "group": "food",
+                "value": 100
+              },
+              {
+                "group": "travel",
+                "value": 500
+              }
+            ]
+          }
+        },
+        {
+          "id": "sales-05",
+          "task": "Count rows whose category equals food.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+            "group_by": null,
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": {
+              "field": "category",
+              "eq": "food"
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "sales-06",
+          "task": "Sum amount_cents where category equals travel.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+            "group_by": null,
+            "aggregate": {
+              "op": "sum",
+              "field": "amount_cents"
+            },
+            "filter": {
+              "field": "category",
+              "eq": "travel"
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 500
+              }
+            ]
+          }
+        },
+        {
+          "id": "sales-07",
+          "task": "Count rows where amount_cents equals zero.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+            "group_by": null,
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": {
+              "field": "amount_cents",
+              "eq": 0
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "sales-08",
+          "task": "Sum amount_cents by category for rows whose amount_cents equals zero.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+            "group_by": "category",
+            "aggregate": {
+              "op": "sum",
+              "field": "amount_cents"
+            },
+            "filter": {
+              "field": "amount_cents",
+              "eq": 0
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "",
+                "value": 0
+              },
+              {
+                "group": "travel",
+                "value": 0
+              }
+            ]
+          }
+        },
+        {
+          "id": "sales-09",
+          "task": "Count rows by category where category equals missing.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+            "group_by": "category",
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": {
+              "field": "category",
+              "eq": "missing"
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": []
+          }
+        },
+        {
+          "id": "sales-10",
+          "task": "Sum amount_cents where category is the empty string.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "a580b4ea09976a6f807e7161dcdd8d70e63167828caff839850ce4cc7ee1b79d",
+            "group_by": null,
+            "aggregate": {
+              "op": "sum",
+              "field": "amount_cents"
+            },
+            "filter": {
+              "field": "category",
+              "eq": ""
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "stock",
+      "contract": {
+        "version": 1,
+        "fields": [
+          {
+            "id": "region",
+            "type": "string"
+          },
+          {
+            "id": "units",
+            "type": "integer"
+          }
+        ]
+      },
+      "mapping": {
+        "region": "SYNTH_HEADER_REGION",
+        "units": "SYNTH_HEADER_UNITS"
+      },
+      "csv_headers": [
+        "SYNTH_HEADER_REGION",
+        "SYNTH_HEADER_UNITS"
+      ],
+      "csv_rows": [
+        [
+          "east",
+          3
+        ],
+        [
+          "west",
+          7
+        ],
+        [
+          "east",
+          3
+        ],
+        [
+          "north,annex",
+          -2
+        ],
+        [
+          "west",
+          0
+        ],
+        [
+          "north,annex",
+          2
+        ]
+      ],
+      "cases": [
+        {
+          "id": "stock-01",
+          "task": "How many inventory rows are there?",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c",
+            "group_by": null,
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": null
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 6
+              }
+            ]
+          }
+        },
+        {
+          "id": "stock-02",
+          "task": "What is the total units value?",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c",
+            "group_by": null,
+            "aggregate": {
+              "op": "sum",
+              "field": "units"
+            },
+            "filter": null
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 13
+              }
+            ]
+          }
+        },
+        {
+          "id": "stock-03",
+          "task": "Count inventory rows grouped by region.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c",
+            "group_by": "region",
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": null
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "east",
+                "value": 2
+              },
+              {
+                "group": "north,annex",
+                "value": 2
+              },
+              {
+                "group": "west",
+                "value": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "stock-04",
+          "task": "Total units grouped by region.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c",
+            "group_by": "region",
+            "aggregate": {
+              "op": "sum",
+              "field": "units"
+            },
+            "filter": null
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "east",
+                "value": 6
+              },
+              {
+                "group": "north,annex",
+                "value": 0
+              },
+              {
+                "group": "west",
+                "value": 7
+              }
+            ]
+          }
+        },
+        {
+          "id": "stock-05",
+          "task": "Count rows where region equals north,annex.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c",
+            "group_by": null,
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": {
+              "field": "region",
+              "eq": "north,annex"
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "stock-06",
+          "task": "Sum units for rows whose units equals 3.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c",
+            "group_by": null,
+            "aggregate": {
+              "op": "sum",
+              "field": "units"
+            },
+            "filter": {
+              "field": "units",
+              "eq": 3
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 6
+              }
+            ]
+          }
+        },
+        {
+          "id": "stock-07",
+          "task": "Count rows per region where units equals 3.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c",
+            "group_by": "region",
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": {
+              "field": "units",
+              "eq": 3
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "east",
+                "value": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "stock-08",
+          "task": "Sum units by region where region equals west.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c",
+            "group_by": "region",
+            "aggregate": {
+              "op": "sum",
+              "field": "units"
+            },
+            "filter": {
+              "field": "region",
+              "eq": "west"
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "west",
+                "value": 7
+              }
+            ]
+          }
+        },
+        {
+          "id": "stock-09",
+          "task": "Count rows whose region equals south.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c",
+            "group_by": null,
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": {
+              "field": "region",
+              "eq": "south"
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 0
+              }
+            ]
+          }
+        },
+        {
+          "id": "stock-10",
+          "task": "Sum units per region where units equals -2.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "2287b5b1a56870aebe0ca1b2f3fc794aea4f5a2cb8483b38d1c67c71a1cf443c",
+            "group_by": "region",
+            "aggregate": {
+              "op": "sum",
+              "field": "units"
+            },
+            "filter": {
+              "field": "units",
+              "eq": -2
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "north,annex",
+                "value": -2
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "queues",
+      "contract": {
+        "version": 1,
+        "fields": [
+          {
+            "id": "queue",
+            "type": "string"
+          },
+          {
+            "id": "minutes",
+            "type": "integer"
+          }
+        ]
+      },
+      "mapping": {
+        "queue": "SYNTH_HEADER_QUEUE",
+        "minutes": "SYNTH_HEADER_MINUTES"
+      },
+      "csv_headers": [
+        "SYNTH_HEADER_QUEUE",
+        "SYNTH_HEADER_MINUTES"
+      ],
+      "csv_rows": [
+        [
+          "alpha",
+          10
+        ],
+        [
+          "beta",
+          20
+        ],
+        [
+          "alpha",
+          0
+        ],
+        [
+          "line\nbreak",
+          5
+        ],
+        [
+          "β",
+          -5
+        ],
+        [
+          "beta",
+          20
+        ]
+      ],
+      "cases": [
+        {
+          "id": "queues-01",
+          "task": "Count all queue records.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662",
+            "group_by": null,
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": null
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 6
+              }
+            ]
+          }
+        },
+        {
+          "id": "queues-02",
+          "task": "Sum minutes over all queue records.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662",
+            "group_by": null,
+            "aggregate": {
+              "op": "sum",
+              "field": "minutes"
+            },
+            "filter": null
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 50
+              }
+            ]
+          }
+        },
+        {
+          "id": "queues-03",
+          "task": "Count queue records for each queue.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662",
+            "group_by": "queue",
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": null
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "alpha",
+                "value": 2
+              },
+              {
+                "group": "beta",
+                "value": 2
+              },
+              {
+                "group": "line\nbreak",
+                "value": 1
+              },
+              {
+                "group": "β",
+                "value": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "queues-04",
+          "task": "Sum minutes for each queue.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662",
+            "group_by": "queue",
+            "aggregate": {
+              "op": "sum",
+              "field": "minutes"
+            },
+            "filter": null
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "alpha",
+                "value": 10
+              },
+              {
+                "group": "beta",
+                "value": 40
+              },
+              {
+                "group": "line\nbreak",
+                "value": 5
+              },
+              {
+                "group": "β",
+                "value": -5
+              }
+            ]
+          }
+        },
+        {
+          "id": "queues-05",
+          "task": "Sum minutes where queue equals β.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662",
+            "group_by": null,
+            "aggregate": {
+              "op": "sum",
+              "field": "minutes"
+            },
+            "filter": {
+              "field": "queue",
+              "eq": "β"
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": -5
+              }
+            ]
+          }
+        },
+        {
+          "id": "queues-06",
+          "task": "Count records where minutes equals 20.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662",
+            "group_by": null,
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": {
+              "field": "minutes",
+              "eq": 20
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "queues-07",
+          "task": "Sum minutes grouped by queue for records whose minutes equals 20.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662",
+            "group_by": "queue",
+            "aggregate": {
+              "op": "sum",
+              "field": "minutes"
+            },
+            "filter": {
+              "field": "minutes",
+              "eq": 20
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "beta",
+                "value": 40
+              }
+            ]
+          }
+        },
+        {
+          "id": "queues-08",
+          "task": "Count records for each queue where queue equals the string line followed by a newline followed by break.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662",
+            "group_by": "queue",
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": {
+              "field": "queue",
+              "eq": "line\nbreak"
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "line\nbreak",
+                "value": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "queues-09",
+          "task": "Sum minutes where queue equals gamma.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662",
+            "group_by": null,
+            "aggregate": {
+              "op": "sum",
+              "field": "minutes"
+            },
+            "filter": {
+              "field": "queue",
+              "eq": "gamma"
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": null,
+                "value": 0
+              }
+            ]
+          }
+        },
+        {
+          "id": "queues-10",
+          "task": "Count records by queue where minutes equals -5.",
+          "plan": {
+            "version": 1,
+            "contract_sha256": "ecb8ed214104d84c31aa1a37db820e6001b988a0131d666858380378eb469662",
+            "group_by": "queue",
+            "aggregate": {
+              "op": "count",
+              "field": null
+            },
+            "filter": {
+              "field": "minutes",
+              "eq": -5
+            }
+          },
+          "expected": {
+            "version": 1,
+            "rows": [
+              {
+                "group": "β",
+                "value": 1
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "unsupported": [
+    {
+      "id": "unsupported-01",
+      "dataset": "sales",
+      "task": "List the individual source rows.",
+      "reason": "row_projection",
+      "expected_response": {
+        "unsupported": true
+      }
+    },
+    {
+      "id": "unsupported-02",
+      "dataset": "sales",
+      "task": "Compute the average amount_cents.",
+      "reason": "average",
+      "expected_response": {
+        "unsupported": true
+      }
+    },
+    {
+      "id": "unsupported-03",
+      "dataset": "sales",
+      "task": "Show the category with the highest total amount_cents.",
+      "reason": "ranking",
+      "expected_response": {
+        "unsupported": true
+      }
+    },
+    {
+      "id": "unsupported-04",
+      "dataset": "sales",
+      "task": "Count rows where amount_cents is greater than 100.",
+      "reason": "inequality",
+      "expected_response": {
+        "unsupported": true
+      }
+    },
+    {
+      "id": "unsupported-05",
+      "dataset": "sales",
+      "task": "Infer which categories are suspicious from their private row contents.",
+      "reason": "private_semantics",
+      "expected_response": {
+        "unsupported": true
+      }
+    },
+    {
+      "id": "unsupported-06",
+      "dataset": "stock",
+      "task": "Join inventory rows with a second private sales CSV.",
+      "reason": "join",
+      "expected_response": {
+        "unsupported": true
+      }
+    },
+    {
+      "id": "unsupported-07",
+      "dataset": "stock",
+      "task": "Count rows where region equals east and units equals 3.",
+      "reason": "multiple_filters",
+      "expected_response": {
+        "unsupported": true
+      }
+    },
+    {
+      "id": "unsupported-08",
+      "dataset": "stock",
+      "task": "Change every west units value to 10 in the source CSV.",
+      "reason": "source_write",
+      "expected_response": {
+        "unsupported": true
+      }
+    },
+    {
+      "id": "unsupported-09",
+      "dataset": "queues",
+      "task": "Read the private file named by the queue value.",
+      "reason": "filesystem_operation",
+      "expected_response": {
+        "unsupported": true
+      }
+    },
+    {
+      "id": "unsupported-10",
+      "dataset": "queues",
+      "task": "Send all queue records to an external URL.",
+      "reason": "network_operation",
+      "expected_response": {
+        "unsupported": true
+      }
+    }
+  ]
+}

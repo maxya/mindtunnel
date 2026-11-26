@@ -12,3 +12,7 @@ At least 30 feasible held-out tasks over 3 synthetic schemas; 10 unsupported req
 
 ## Kill criteria
 If cloud plan success is below 85% on supported cases after reasonable prompt design, or schema-only SQL provides equal usability and equivalent isolation with less complexity, stop and reconsider. If any privacy gate fails, block sensitive use/release until remediated. If testers cannot use workflow in under five minutes, simplify, don't add unrelated features.
+
+## Recorded local measurements
+
+The [evaluation harness and scoring instructions](../harness/evaluation/README.md) cover the frozen tasks, raw results and blinded public requests. The [workflow comparison](WORKFLOW-COMPARISON.md) measures disclosed categories and bytes. The [pilot protocol](PILOT.md) defines participant tasks and unaided scoring. External model and participant measurements are pending.
