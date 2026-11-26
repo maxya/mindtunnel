@@ -48,3 +48,7 @@ No daemon or persistent DB. Private inputs/results should be outside the checkou
 ![Architecture](diagrams/architecture.svg)
 
 Graphviz source: `diagrams/architecture.dot`; the Mermaid source above is also editable.
+
+## Implemented public planning boundary
+
+The optional `mindtunnel_planner` coordinator previews exact request bytes, requires an explicit matching approval hash, and consumes an expiring single-use receipt before launching the isolated deterministic mock worker. Only the standalone public worker is mounted into that worker process. Returned captures are compared byte for byte and returned plans are validated against the public contract. Manual transport remains available. Usage and trust assumptions are documented in [PLANNING.md](PLANNING.md).
