@@ -1,11 +1,12 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools==84.2.1", "wheel==0.48.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "mindtunnel"
 version = "0.0.1"
 description = "Local-first experimental reference implementation"
+readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
 
@@ -15,3 +16,8 @@ mindtunnel-planner = "mindtunnel_planner.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["mindtunnel*"]
+
+[tool.setuptools.data-files]
+"share/mindtunnel/examples" = ["examples/contract.json", "examples/mapping.json", "examples/plan.json", "examples/rejected-plan.json", "examples/expected.json", "examples/transactions.csv"]
+"share/mindtunnel/schemas" = ["schemas/contract-v1.schema.json", "schemas/plan-v1.schema.json", "schemas/result-v1.schema.json"]
+"share/mindtunnel/conformance" = ["tests/fixtures/conformance-v1.json"]

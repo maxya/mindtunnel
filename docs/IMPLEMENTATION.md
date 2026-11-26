@@ -1,25 +1,21 @@
 # Implementation guide
 
-## Setup
-Python 3.11+; standard library only at runtime. `make test` / `make demo` or `python3 -m unittest discover -s tests -v` and `python3 scripts/demo.py`. Optional editable install `python3 -m venv .venv; source .venv/bin/activate; python -m pip install -e .` requires setuptools and may fetch packaging dependencies; not needed offline. Do not install unreviewed packages.
+## Implementation map
 
-## Code map
-`mindtunnel/core.py` owns strict parsing, contract, public request, plan and interpreter. `mindtunnel/cli.py` owns user path arguments, bounded loads and local output. `mindtunnel/report.py` validates results and renders private local text tables. `examples/` is synthetic. `tests/` verifies core and CLI. `scripts/demo.py` executes the proof without a network provider. Keep planner integration separate (e.g. `mindtunnel_planner/` with no import of executor modules) and test it in a separate process. Split modules if it reduces coupling, not for architecture theater.
+Python 3.11+ with a standard-library runtime. Run `make test` and `make demo` from the checkout. See [source setup](../BOOTSTRAP.md) for installation.
 
-## P1 tasks
-1. Freeze contract/plan schemas and add positive/negative vectors. Use duplicate-aware JSON parsing; booleans not integers. Validate semantic references after structure; avoid mutable validated plans or revalidate immediately before execution.
-2. Validate file/row/cell boundaries, encoding, malformed CSV, type errors, source immutability, resource exhaustion; fail closed with stable error codes. Test execution under no network and restrict permissions on output.
-3. Add `validate` command if useful; never emit private diagnostic content. Avoid arbitrary SQL, eval, shell, plugin execution. Document public task/contract limitations.
+| Component | Responsibility |
+|---|---|
+| mindtunnel/core.py | Duplicate-aware JSON parsing, public contract/request, v1 validation, deterministic bounded CSV aggregates |
+| mindtunnel/files.py | Descriptor-relative regular-file reads and exclusive private publication |
+| mindtunnel/cli.py and report.py | Owner-selected paths, generic status and escaped plain-text reports |
+| mindtunnel_planner | Exact-byte preview, one-use approval, mock worker and response validation |
+| mindtunnel_isolation | Optional Linux namespace, resource and socket controls for the two workers |
+| schemas/ and tests/fixtures | Structural v1 schemas and frozen conformance vectors |
+| examples/ and scripts/demo.py | Invented inputs and an offline CLI demonstration |
+| harness/evaluation | Frozen labels, trusted SQL comparator, measurements and manual response scoring |
 
-## P2 tasks
-Build exact reviewable request representation; use byte hash plus provider/model destination in an approval receipt; expiry and one-use token (local approval), no implicit chat history. Planner subprocess sees only public approved bytes and provider token, no private paths; executor sees plan+contract+local mapping/data and no network. For remote API, explicitly disable extra tools, uploads, web, state retention where supported; do not promise provider privacy or no retention. Use a mock provider fixture; actual endpoint requires owner approval. Reject unsupported response or invalid plan without returning private errors. Give user actionable generic diagnosis locally.
-
-## P3–5
-Implement only primitives with concrete benchmark cases. Add renderer with proper escaping and no external URLs/scripts. Test with synthetic datasets. Compare alternative approach fairly; record limitations, actual user feedback, license and naming review before public release. No vendor-specific lock-in. Keep CI offline except checkout/tool setup.
-
-## Codex workflow reference
-
-[OpenAI: Iterating Development Workflows with Codex (Aug 3, 2026)](https://developers.openai.com/cookbook/examples/codex/iterating-development-workflows-with-codex) describes durable AGENTS.md, GOALS.md, PLANS.md, PROMPTS.md and phase-specific evidence. This repo follows an adapted lightweight version. `BOOTSTRAP.md` contains the initial prompt.
+The public CLI has no provider credential or endpoint setting. Manual transfer and the fixed local mock are the available planning paths. See [planning](PLANNING.md) and [Linux isolation](ISOLATION.md). Keep alias/type contracts deliberately public and mappings private.
 
 ## v1 conformance and local files
 

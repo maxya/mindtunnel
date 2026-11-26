@@ -7,12 +7,18 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-        python: ['3.11', '3.13']
+        python: ['3.11', '3.13', '3.14']
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-      - run: python -m unittest discover -s tests -v
-      - run: python -m compileall -q .
+      - name: Install explicit build and verification tools
+        run: python -m pip install setuptools==84.2.1 wheel==0.48.0 uv==0.13.10
+      - name: Verify source behavior
+        run: bash bootstrap.sh
+      - name: Compile known project modules
+        run: python -m compileall -q mindtunnel mindtunnel_planner mindtunnel_isolation tests harness scripts
+      - name: Verify offline archives and clean installs
+        run: python scripts/verify_release.py --out release-verification.json

@@ -1,5 +1,5 @@
 """Offline CLI. Request and execution are separate commands."""
-import argparse
+from .arguments import LocalArgumentParser
 import json
 import sys
 from .files import write_private
@@ -7,9 +7,10 @@ from .core import Invalid, execute, load, request
 from .report import load_result, render
 
 def main(argv=None):
-    p = argparse.ArgumentParser(prog="mindtunnel")
+    p = LocalArgumentParser(prog="mindtunnel")
     sub = p.add_subparsers(dest="cmd", required=True)
-    q = sub.add_parser("request", help="Print only manually approved public request")
+    q = sub.add_parser("request", help="Print public request for owner review",
+                       description="Print the public request for owner review before manual transfer.")
     q.add_argument("--contract", required=True)
     q.add_argument("--task", required=True)
     r = sub.add_parser("run", help="Execute a plan locally; no remote calls")

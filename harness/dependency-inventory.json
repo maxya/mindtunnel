@@ -1,0 +1,112 @@
+{
+  "format_version": 1,
+  "project": {
+    "name": "mindtunnel",
+    "version": "0.0.1",
+    "license": "NOASSERTION"
+  },
+  "runtime": {
+    "python": ">=3.11",
+    "third_party_python_packages": []
+  },
+  "build_components": [
+    {
+      "name": "setuptools",
+      "version": "84.2.1",
+      "role": "build",
+      "requires_python": ">=3.10",
+      "license_expression": "MIT",
+      "active_requirements": [
+        "packaging>=26.3",
+        "more_itertools>=8.8",
+        "jaraco.text>=3.7",
+        "wheel>=0.43.0",
+        "jaraco.functools>=4",
+        "more_itertools"
+      ]
+    },
+    {
+      "name": "wheel",
+      "version": "0.48.0",
+      "role": "build",
+      "requires_python": ">=3.9",
+      "license_expression": "MIT",
+      "active_requirements": [
+        "packaging >= 24.0"
+      ]
+    },
+    {
+      "name": "packaging",
+      "version": "26.4",
+      "role": "build",
+      "requires_python": ">=3.10",
+      "license_expression": "Apache-2.0 OR BSD-2-Clause",
+      "active_requirements": []
+    },
+    {
+      "name": "more_itertools",
+      "version": "11.2.1",
+      "role": "build",
+      "requires_python": ">=3.11",
+      "license_expression": "MIT",
+      "active_requirements": []
+    },
+    {
+      "name": "jaraco.text",
+      "version": "4.0.0",
+      "role": "build",
+      "requires_python": ">=3.8",
+      "license_expression": "NOASSERTION",
+      "active_requirements": [
+        "jaraco.functools",
+        "jaraco.context>=4.1",
+        "autocommand",
+        "more_itertools"
+      ]
+    },
+    {
+      "name": "jaraco.functools",
+      "version": "4.1.0",
+      "role": "build",
+      "requires_python": ">=3.8",
+      "license_expression": "NOASSERTION",
+      "active_requirements": [
+        "more_itertools"
+      ]
+    },
+    {
+      "name": "jaraco.context",
+      "version": "6.1.3.dev0+g098f39c91.d20260403",
+      "role": "build",
+      "requires_python": ">=3.10",
+      "license_expression": "MIT",
+      "active_requirements": []
+    },
+    {
+      "name": "autocommand",
+      "version": "2.2.2",
+      "role": "build",
+      "requires_python": ">=3.7",
+      "license_expression": "NOASSERTION",
+      "active_requirements": []
+    }
+  ],
+  "verification_installer": {
+    "name": "uv",
+    "version": "0.13.10"
+  },
+  "optional_linux_isolation": [
+    "bubblewrap",
+    "libseccomp.so.2",
+    "Linux user/mount/network namespaces"
+  ],
+  "scope": "Explicit application/build/verification components. Upstream Python, OS libraries, and build-tool bundled internals require their own inventory and advisory review.",
+  "audit_status": "No external advisory audit or license grant claimed.",
+  "optional_demo_renderer": {
+    "name": "Pillow",
+    "version": "13.0.0",
+    "role": "optional local synthetic GIF generation",
+    "license_expression": "MIT-CMU"
+  },
+  "provisioning_limitation": "Local jaraco.context metadata reports a development snapshot. Reproducing this exact dependency environment on an independently provisioned machine remains unverified."
+}

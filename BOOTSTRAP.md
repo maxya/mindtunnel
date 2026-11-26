@@ -1,13 +1,32 @@
-# Start on your laptop
+# Source setup
 
-1. Extract the standalone `mindtunnel.zip` into your normal development workspace. `cd mindtunnel`.
-2. Run `bash bootstrap.sh` (or `make test && make demo`). Python 3.11+ is the only runtime requirement; this does not install packages or call a provider. Use only bundled synthetic fixtures.
-3. Optional: initialize a local Git repository (`git init`); inspect `.gitignore` and the tree. Do not commit private data or publish before approving the license and name.
-4. Start your installed `codex` from this directory. `AGENTS.md` contains persistent project instructions. Paste the first-session prompt from `PROMPTS.md` for an independent read-only review, or the full MVP orchestration prompt if you explicitly authorize all MVP phases.
-5. Review P1 scope and gate in `PLANS.md`. The bootstrap is a verified offline reference, not a finished MVP. Keep real data outside the agent workspace and run sensitive experiments only after the security gate.
+Use Python 3.11 or newer. From the MindTunnel repository, run the synthetic bootstrap.
 
-## Recommended first prompt
+```sh
+bash bootstrap.sh
+```
 
-Read AGENTS.md, RESUME.md, GOALS.md, PLANS.md, PROMPTS.md and the docs. Perform the read-only preflight, independently verify the bootstrap, identify gaps, and propose P1 implementation/test scope. Do not write, publish, use real data, or add cloud access until approved. Use independent review (sam, if available) and record actual evidence. Then await phase authorization.
+The script runs the unit suite and demo without fetching dependencies or contacting a planner. On systems without make, use `python3 -m unittest discover -s tests -v` and `python3 scripts/demo.py`. The source CLI is available through `python3 -m mindtunnel.cli --help`. See [usage](README.md).
 
-This handoff does not require a specific Codex model, subagent name, Git host or account. The project can be developed on macOS/Linux and eventually integrated into existing agents. No Git remote or credentials are configured.
+## Install the package
+
+The offline release verifier can create a wheel and source archive from the reviewed source manifest. With the local build tools in [release preparation](docs/RELEASE.md) installed, choose a fresh evidence path and a new artifact directory:
+
+```sh
+python3 scripts/verify_release.py --out /tmp/mindtunnel-build-check.json --artifacts dist
+```
+
+Install the built wheel into an empty virtual environment. For example, on a machine with Python's pip and venv:
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install --no-index --no-deps dist/mindtunnel-0.0.1-py3-none-any.whl
+.venv/bin/mindtunnel --help
+.venv/bin/mindtunnel-planner --help
+```
+
+Keep build tools in the build environment. The installed project declares no third-party Python runtime dependencies. The ordinary executor and the isolated Linux launcher have different host requirements. See [isolation prerequisites](docs/ISOLATION.md).
+
+## Resume engineering work
+
+Check [observed progress](RESUME.md), [phase gates](PLANS.md), [agent instructions](AGENTS.md) and [build evidence](harness/build-log.md). Inspect the current branch and worktree. Use synthetic fixtures for all agent and CI runs. Release and external validation decisions remain with the owner.

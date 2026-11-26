@@ -14,10 +14,11 @@ python3 -m mindtunnel.cli request --contract examples/contract.json --task 'Sum 
 python3 -m mindtunnel_planner.cli preview --request work/public.json
 ```
 
-The preview includes the exact request as an escaped UTF-8 string, its byte count and SHA-256, destination `mock://local`, model `synthetic-v1`, and `approval_sha256`. Inspect the entire request and target. Copy the displayed approval hash into the following command.
+The preview includes the exact request as an escaped UTF-8 string, its byte count and SHA-256, destination `mock://local`, model `synthetic-v1`, and `approval_sha256`. Inspect the entire request and target. In Bash, paste the displayed approval hash at the prompt.
 
 ```sh
-python3 -m mindtunnel_planner.cli approve --request work/public.json --approval work/approval.json --confirm-sha256 <approval_sha256>
+read -r -p 'Reviewed approval SHA-256: ' approval_sha256
+python3 -m mindtunnel_planner.cli approve --request work/public.json --approval work/approval.json --confirm-sha256 "$approval_sha256"
 python3 -m mindtunnel_planner.cli mock --request work/public.json --approval work/approval.json --plan-out work/returned-plan.json --capture-out work/captured-request.json
 ```
 

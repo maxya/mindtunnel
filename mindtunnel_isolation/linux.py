@@ -109,8 +109,8 @@ def run_private(contract, plan, mapping, data, out):
 
 
 def main(argv=None):
-    import argparse
-    parser = argparse.ArgumentParser(description="Run a private aggregate in a Linux sandbox")
+    from mindtunnel.arguments import LocalArgumentParser
+    parser = LocalArgumentParser(prog="mindtunnel-isolated", description="Run a private aggregate in a Linux sandbox")
     for name in ("contract", "plan", "mapping", "data", "out"):
         parser.add_argument("--" + name, required=True)
     args = parser.parse_args(argv)

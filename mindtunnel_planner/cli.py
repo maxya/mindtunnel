@@ -1,5 +1,5 @@
 """Public planning preview, explicit approval, and isolated mock commands."""
-import argparse
+from mindtunnel.arguments import LocalArgumentParser
 import json
 import sys
 
@@ -9,7 +9,7 @@ from .boundary import DESTINATION, MODEL, approve, generate_mock, preview
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(prog='mindtunnel-planner')
+    parser = LocalArgumentParser(prog='mindtunnel-planner')
     commands = parser.add_subparsers(dest='command', required=True)
     for name in ('preview', 'approve', 'mock'):
         command = commands.add_parser(name)

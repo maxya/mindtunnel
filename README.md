@@ -1,15 +1,42 @@
-# MindTunnel (working name)
+# MindTunnel
 
-**Send the plan, not the data.** Experimental local execution protocol for cloud-assisted private analytics. The public contract and question are deliberately authored; the planner returns a bounded JSON plan, not arbitrary SQL or code. Data and results remain in the local execution path. This repository is an offline reference proof, not a finished or security-audited product.
+**Send the plan, not the data.** MindTunnel lets a planner design a small aggregate calculation from an explicitly public question and alias/type contract. Its local Python interpreter checks the resulting v1 JSON plan and runs it against a CSV. It writes the result to a private local file. The planner has no result or error feedback channel.
 
-## Quick start (no API key, no dependencies)
+**Release status:** local engineering has been reviewed on Linux with invented fixtures. Real model quality, outside usability, hosted cross-platform CI, license approval and release sign-off remain open. The bundled planner is a deterministic mock. Manual transfer supports a planner chosen by the owner.
+
+## Run the synthetic demo
+
+From the source checkout with Python 3.11 or newer:
 
 ```sh
 make test
 make demo
 ```
 
-Or run `python3 -m unittest discover -s tests -v` and `python3 scripts/demo.py`. Python 3.11+. Demo uses invented transactions and a hand-written plan. It prints the public request, then a synthetic local result, and rejects an extra command field. The executor is offline by design but does not impose an OS sandbox. Do not run real private data inside a cloud-connected Codex session. `private/` and `work/` are ignored but Git ignore is not access control. Use an owner-only directory outside the repo for real data after review.
+The demo needs no dependencies, credentials or network. It shows the complete public request, executes a supplied plan, verifies totals of 2200 and 3000 cents, renders the local report and rejects an unexpected command field. The demo deliberately displays invented results. Normal CLI commands write results to an owner-selected file and print generic status.
 
-## Start building with Codex
-Read [RESUME.md](RESUME.md), [AGENTS.md](AGENTS.md), [GOALS.md](GOALS.md), [PLANS.md](PLANS.md), and [PROMPTS.md](PROMPTS.md). Full product requirements, architecture, security, research, evaluation and implementation guidance in `docs/`. Phase 1 is next; the proposed license and name require owner approval. No live provider integration is included yet.
+## Run a calculation
+
+Use a new directory for the output. The CLI refuses to overwrite existing files. Supply physical paths without symlinks or parent traversal.
+
+```sh
+mkdir -m 700 work
+python3 -m mindtunnel.cli request --contract examples/contract.json \
+  --task 'Sum amount_cents by category' > work/public-request.json
+python3 -m mindtunnel.cli run --contract examples/contract.json \
+  --mapping examples/mapping.json --data examples/transactions.csv \
+  --plan examples/plan.json --out work/result.json
+python3 -m mindtunnel.cli report --result work/result.json --out work/report.txt
+```
+
+Inspect every alias and the full task before manually transferring a request. Only the public contract and approved question belong in the planning interaction. The example uses a hand-authored plan. The separate mock workflow previews the exact bytes, destination and model, consumes an expiring approval and compares the captured bytes with the preview. [Planner workflow](docs/PLANNING.md)
+
+The ordinary executor runs with the local user's permissions. The optional Linux launcher enforces filesystem and network isolation for its workers with Bubblewrap and libseccomp. Keep real private data outside cloud-connected coding sessions, terminals, synced output directories and agent-readable storage. [Isolation and verification](docs/ISOLATION.md) · [Threat model](docs/SECURITY.md)
+
+## Install and evaluate
+
+Running directly from the checkout uses only Python's standard library. To install the packaged commands, build a wheel with the documented local build tools and install it into a new virtual environment. After installation, use `mindtunnel` in place of `python3 -m mindtunnel.cli` and `mindtunnel-planner` in place of `python3 -m mindtunnel_planner.cli`. [Source setup](BOOTSTRAP.md)
+
+The interpreter supports exact count and integer sum, optional grouping by a string alias, and one typed equality filter. It rejects unsupported versions, operations, extra keys and invalid references. Arithmetic semantics, limits and local mapping examples are documented. [Implementation guide](docs/IMPLEMENTATION.md) · [Architecture](docs/ARCHITECTURE.md)
+
+The checked-in evaluation covers 30 feasible questions across three synthetic schemas, 10 unsupported questions and 53 invalid plan vectors. Gold and analyst-written SQL each matched all 30 expected results. The narrow mock declined all 30 feasible questions. The external model comparison and pilot still need participants and measured responses. [Evaluation data and commands](harness/evaluation/README.md) · [Workflow comparison](docs/WORKFLOW-COMPARISON.md) · [Project handoff](RESUME.md)
