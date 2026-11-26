@@ -6,6 +6,8 @@ MindTunnel is the product and the Python package and CLI are both named mindtunn
 
 The validation work starts from 9284c1d. Keep the frozen corpus and original 85% threshold fixed. The operator-side protocol is in [manual model evaluation](harness/evaluation/VALIDATION.md). The run order and requirements are in the [validation ledger](validation/README.md).
 
+V1 was accepted at d18c4a0. V2 produced [two verified public request packets and collection instructions](validation/MODEL-RUNS.md). No real model session has run. The next product test requires an approved cloud transfer or existing local weights in a verified isolated runtime.
+
 ## Historical P0–P5 evidence on 2026-11-26
 
 | Phase | Evidence and remaining work |

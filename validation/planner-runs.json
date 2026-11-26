@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-26",
+  "frozen_corpus_sha256": "054dd9272369591d82e7fe2bac8ca9a50e593f88f13ff33e974153b85aedb12b",
+  "synthetic_only": true,
+  "external_network_enabled": false,
+  "runs": [],
+  "real_sessions_started": 0,
+  "real_responses_collected": 0,
+  "real_model_accuracy": null,
+  "candidate_classes": [
+    {"class": "cloud_frontier", "status": "unmeasured", "reason": "No approved external destination, model and outbound transfer for this study."},
+    {"class": "cloud_small", "status": "unmeasured", "reason": "No approved external destination, model and outbound transfer for this study."},
+    {"class": "local", "status": "unmeasured", "reason": "Cached Ollama runtime image found. No eligible local weights identified in the checked locations."}
+  ],
+  "discovery": {
+    "host_commands": ["ollama", "llama-run", "llama-cli", "llama-server", "vllm", "llamafile", "mlx_lm.generate", "lms", "koboldcpp"],
+    "host_command_matches": [],
+    "host_python_modules": ["llama_cpp", "ollama", "transformers", "torch", "vllm", "mlx_lm", "onnxruntime", "ctransformers", "gpt4all"],
+    "host_python_module_matches": [],
+    "cached_ollama_image_short_id": "1bef63974974",
+    "image_probe": "Temporary container, --pull never, --network none, --read-only, no host mounts. None of the three standard model directories checked existed.",
+    "standard_host_model_cache_found": false,
+    "scope": "Checked common Ollama, Hugging Face and LM Studio locations and model-cache configuration presence. Custom storage locations require an owner-provided model path."
+  },
+  "excluded": [
+    "The engineering agents share the repository and can inspect frozen labels.",
+    "The deterministic grammar mock is a boundary fixture."
+  ],
+  "gate": {"feasible_total": 30, "required_first_attempt_exact_plan_and_result": 26, "unsupported_total": 10, "status": "unmeasured"}
+}
