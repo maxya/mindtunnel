@@ -1,6 +1,6 @@
 # Local release preparation
 
-The package version remains `0.0.1`, an experimental preparation build. This numeric version has no PEP 440 prerelease suffix. Project status and the release checklist communicate its experimental state. The owner must approve the license, public release, and tag before publication. Local archive verification can proceed while those decisions and the external evaluation gates remain pending.
+The package version remains `0.0.1`, an experimental preparation build. This numeric version has no PEP 440 prerelease suffix. Project status and the release checklist communicate its experimental state. The owner selected the [MIT License](../LICENSE). Public release and any tag require owner approval. Local archive verification can proceed while those decisions and the external evaluation gates remain pending.
 
 ## Offline source and archive verification
 
@@ -31,7 +31,8 @@ The dependency inventory is `harness/dependency-inventory.json`. It covers the a
 
 ## Release and tag checklist
 
-- [ ] Approve the project name, license grant, copyright holder, final license text, package metadata, and publication scope.
+- [x] Adopt MIT with the MindTunnel contributors notice and synchronize package metadata.
+- [ ] Approve the project name and publication scope.
 - [ ] Complete the frozen model-quality comparisons, five-person synthetic pilot, and all mandatory evaluation gates including at least 85% exact plan plus result on 30 feasible questions and three of five independent boundary explanations.
 - [ ] Confirm a private, monitored security reporting route and security maintenance policy.
 - [ ] Review the threat model, supported guarantees, exclusions, conformance vectors, and all material independent-review findings.
@@ -45,4 +46,4 @@ Use a signed or annotated tag according to the maintainer's approved release pol
 
 ## Decision evidence
 
-Record each actual model and its frozen settings, first-attempt score over all 30 feasible tasks, unsupported results over all ten, and separate retry outcomes. Record the independent SQL-generation comparison and participant outcomes. The private reporting channel must have an assigned monitor, a tested incoming report path and a response policy. Owners must inspect the actual candidate files and hashes and approve the project grant, release version and publication scope. The internal Git history contains held-out study labels and development records. Use a separately reviewed public export for any future source distribution.
+Record each actual model and its frozen settings, first-attempt score over all 30 feasible tasks, unsupported results over all ten, and separate retry outcomes. Record the independent SQL-generation comparison and participant outcomes. The private reporting channel must have an assigned monitor, a tested incoming report path and a response policy. Owners must inspect the actual candidate files and hashes and approve the release version and publication scope. The internal Git history contains held-out study labels and development records. Use a separately reviewed public export for any future source distribution.

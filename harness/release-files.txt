@@ -1,6 +1,6 @@
 .github/workflows/ci.yml
 BOOTSTRAP.md
-LICENSE-NOTES.md
+LICENSE
 MANIFEST.in
 Makefile
 README.md

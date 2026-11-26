@@ -1,6 +1,6 @@
 # Prospective publication scope
 
-The wheel, curated source archive, participant packet and synthetic demo are separate artifacts. The current Git branch contains internal reports, prompt and orchestration notes, answers to the frozen study, and evaluation tooling. Publishing its history would make the frozen answers accessible. Keep the internal checkout, its Git objects, older archives, grader, operator run directories and facilitator answers outside planner and participant sessions.
+The wheel, curated source archive, participant packet and synthetic demo are separate artifacts. The current Git branch contains internal reports, prompt and orchestration notes, answers to the frozen study, and evaluation tooling. An anonymous remote check found this history at dec76ef on canonical main. Treat the frozen answers as exposed. Keep the internal checkout, its Git objects, older archives, grader, operator run directories and facilitator answers outside planner and participant sessions.
 
 Before release, build from the reviewed positive source list into a **new** artifact directory. Treat archives retained from earlier checkpoints as historical artifacts. Review the content and SHA-256 of the exact files proposed for distribution. If the owner later chooses to publish a repository, prepare and inspect a clean export and its history. Reassess benchmark blindness if its answers have become public or a planner has previously seen them.
 

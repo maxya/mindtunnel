@@ -3,7 +3,7 @@
   "project": {
     "name": "mindtunnel",
     "version": "0.0.1",
-    "license": "NOASSERTION"
+    "license": "MIT"
   },
   "runtime": {
     "python": ">=3.11",
@@ -101,7 +101,7 @@
     "Linux user/mount/network namespaces"
   ],
   "scope": "Explicit application/build/verification components. Upstream Python, OS libraries, and build-tool bundled internals require their own inventory and advisory review.",
-  "audit_status": "No external advisory audit or license grant claimed.",
+  "audit_status": "External dependency advisory audit remains pending.",
   "optional_demo_renderer": {
     "name": "Pillow",
     "version": "13.0.0",

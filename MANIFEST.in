@@ -1,7 +1,7 @@
 global-exclude *
 include .github/workflows/ci.yml
 include BOOTSTRAP.md
-include LICENSE-NOTES.md
+include LICENSE
 include MANIFEST.in
 include Makefile
 include README.md

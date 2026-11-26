@@ -10,7 +10,7 @@ Start from the accepted P0–P5 checkpoint at 9284c1d. Keep the public plan gram
 | V4 | Prepare a self-contained synthetic participant kit, unaided exercise, questionnaire and facilitator-only scoring sheet. Five independent people must attempt it; three must explain the boundary unaided. |
 | V5 | Prepare release notes, demo, support and security docs, owner decisions and release checklist. Inspect prospective public files and archive contents. Sam reviews the final cross-phase recommendation. |
 
-No network/provider enablement, new credentials, license adoption, publication or P6 changes are authorized. Independent platform and pilot preparation can run while model or participant evidence is pending. See RESUME.md and harness/build-log.md for phase results and local commit references.
+The owner subsequently adopted MIT. New provider access, credentials, publication and P6 still require separate approval. Independent platform and pilot preparation can run while model or participant evidence is pending. See RESUME.md and harness/build-log.md for phase results and local commit references.
 
 ## Outcome
 
@@ -22,6 +22,6 @@ No network/provider enablement, new credentials, license adoption, publication o
 | V2 | Two inspected archives of 40 public requests, local capability inventory and owner instructions | Eligible isolated model and approved transfer; full per-model responses and scores |
 | V3 | Linux 3.11.2 source, wheel and sdist verification; rebuilt and clean-installed archives; Mac guard and hosted configuration review | Successful native Apple Silicon and hosted jobs |
 | V4 | Offline participant kit with independent software rehearsal and separate empty scoring sheet | Five outside attempts, at least three unaided explanations |
-| V5 | Curated source and wheel, reproducible local builds, security/contact and license options, release notes and synthetic demo | Rights holder, license, monitored reporting route and owner release sign-off |
+| V5 | Curated source and wheel, reproducible local builds, security/contact and license options, release notes and synthetic demo | Monitored reporting route and owner release sign-off |
 
 See [model packets and procedure](MODEL-RUNS.md), [platform evidence](platform-results.json), [pilot guide](pilot/FACILITATOR.md), [public artifact review](publication-scope.md) and [independent release verdict](reviews/v5.md). Maintain the current plan language until model performance and participant outcomes are available.

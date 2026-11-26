@@ -1,5 +1,7 @@
 # Run a blinded planner comparison
 
+**Blinded collection is on hold.** The canonical remote exposed the internal answer key at commit `dec76ef`. Retain these packets for historical reproduction and open-book comparisons. A future held-out claim requires a fresh independently protected corpus.
+
 As of this checkpoint there are zero actual planner responses. Frontier, smaller cloud and local model outcomes are **unmeasured**. A local Ollama runtime image was available, but the checked locations contained no model weights. Engineering agents have access to the answer files and are ineligible. [Capability record](planner-runs.json)
 
 The operator has two ready-made archives. Each contains 40 public request files and nothing else. Download or extract them locally. A session gets **one approved file's text**, never the archive, repository, index, model outputs, scoring sheet or answer key.

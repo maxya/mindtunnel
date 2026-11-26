@@ -2,7 +2,7 @@
 
 **Send the plan, not the data.** MindTunnel lets a planner design a small aggregate calculation from an explicitly public question and alias/type contract. Its local Python interpreter checks the resulting v1 JSON plan and runs it against a CSV. It writes the result to a private local file. The planner has no result or error feedback channel.
 
-**Experimental release candidate.** On Linux, the synthetic workflow passed from source and from clean package installs, including Python 3.11.2. Actual planner quality, participant usability, native macOS and hosted CI results, license approval and release sign-off remain open. The bundled planner is a deterministic mock. Manual transfer supports a planner chosen by the owner.
+**Experimental release candidate.** On Linux, the synthetic workflow passed from source and from clean package installs, including Python 3.11.2. Actual planner quality, participant usability, native macOS and hosted CI results, and release sign-off remain open. The bundled planner is a deterministic mock. Manual transfer supports a planner chosen by the owner.
 
 ## Run the synthetic demo
 
@@ -40,3 +40,7 @@ Running directly from the checkout uses only Python's standard library. To insta
 The interpreter supports exact count and integer sum, optional grouping by a string alias, and one typed equality filter. It rejects unsupported versions, operations, extra keys and invalid references. Arithmetic semantics, limits and local mapping examples are documented. [Implementation guide](docs/IMPLEMENTATION.md) · [Architecture](docs/ARCHITECTURE.md)
 
 The internal frozen evaluation covers 30 feasible questions across three synthetic schemas, 10 unsupported questions and 53 invalid plan vectors. Gold and analyst-written SQL each matched all 30 expected results. The narrow mock declined all 30 feasible questions. The external model comparison and pilot still need participants and measured responses. A reviewer can reproduce the boundary checks from the isolated-workflow instructions. [Candidate notes](docs/RELEASE-NOTES.md) · [Release checklist](docs/RELEASE.md)
+
+## License
+
+MindTunnel is available under the [MIT License](LICENSE).

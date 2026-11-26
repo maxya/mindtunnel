@@ -22,6 +22,6 @@ The portable workflow and clean installation paths have run on Linux with Python
 - A manual planner can see whatever the user chooses to share. Review the request contents and destination before transfer. Model or provider retention depends on the chosen service.
 - The portable CLI uses the caller's process permissions. Native Apple Silicon runs and hosted platform results remain pending, and kernel-level worker isolation targets compatible Linux systems.
 - The v1 operation set omits joins, arbitrary expressions, raw-row output and arbitrary SQL. Unsupported operations are rejected before CSV execution.
-- Public release requires owner approval of the project identity, license, reporting route and final artifacts.
+- Public release requires owner approval of the project identity, reporting route and final artifacts.
 
-These notes describe a local release candidate. [Release checklist](RELEASE.md) · [Threat model](SECURITY.md)
+MindTunnel is available under the [MIT License](../LICENSE). These notes describe a local release candidate. [Release checklist](RELEASE.md) · [Threat model](SECURITY.md)

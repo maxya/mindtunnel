@@ -1,5 +1,6 @@
 """Build and verify allowlisted local archives using preinstalled offline tools."""
 import argparse
+from email.parser import BytesParser
 import gzip
 import hashlib
 import importlib.metadata
@@ -75,8 +76,14 @@ def wheel_inputs(source_bytes):
             if name.startswith(prefix):
                 target = DIST + '.data/data/share/mindtunnel/' + destination + name[len(prefix):]
                 expected[target] = raw
-    expected[DIST+'.dist-info/licenses/LICENSE-NOTES.md'] = source_bytes['LICENSE-NOTES.md']
+    expected[DIST+'.dist-info/licenses/LICENSE'] = source_bytes['LICENSE']
     return expected
+
+
+def verify_license_metadata(raw):
+    metadata = BytesParser().parsebytes(raw)
+    if metadata.get_all('License-Expression') != ['MIT'] or metadata.get_all('License-File') != ['LICENSE']:
+        raise ValueError('invalid_license_metadata')
 
 
 def inspect_wheel(path, source_bytes):
@@ -97,6 +104,8 @@ def inspect_wheel(path, source_bytes):
             raw = archive.read(name)
             if name in expected and raw != expected[name]:
                 raise ValueError('wheel_content_mismatch')
+            if name == DIST+'.dist-info/METADATA':
+                verify_license_metadata(raw)
             content[name] = digest(raw)
     return content
 
@@ -122,9 +131,13 @@ def inspect_sdist(path, source_bytes):
                 raise ValueError('unexpected_packaging_configuration')
             if relative in source_bytes and raw != source_bytes[relative]:
                 raise ValueError('sdist_content_mismatch')
+            if relative in {'PKG-INFO', 'mindtunnel.egg-info/PKG-INFO'}:
+                verify_license_metadata(raw)
             content[relative] = digest(raw)
     if not set(source_bytes).issubset(content):
         raise ValueError('missing_sdist_source')
+    if 'PKG-INFO' not in content:
+        raise ValueError('missing_sdist_metadata')
     return content
 
 

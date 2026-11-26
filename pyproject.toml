@@ -7,6 +7,8 @@ name = "mindtunnel"
 version = "0.0.1"
 description = "Local-first experimental reference implementation"
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.11"
 dependencies = []
 

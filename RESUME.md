@@ -4,13 +4,15 @@ MindTunnel is the product and the Python package and CLI are both named mindtunn
 
 ## Current decision — NO-GO for public release
 
-V1–V5 local engineering and independent review are complete. Actual model utility, unaided human understanding, native Apple Silicon, hosted CI and owner release approvals remain open. Continue with the numbered collection steps in [the model run guide](validation/MODEL-RUNS.md), the [five-person pilot](validation/pilot/FACILITATOR.md) and [platform verification](docs/PLATFORMS.md). The [final independent review](validation/reviews/v5.md), [archive inventory](validation/distribution-results.json), [candidate notes](docs/RELEASE-NOTES.md) and [validation ledger](validation/README.md) are the current evidence. Earlier P0–P5 reports and archives are historical. Use the curated V5 archives or rebuild from the current positive manifest; the full Git history contains held-out answers.
+The owner selected the [MIT License](LICENSE) for MindTunnel. An anonymous GitHub ref check observed canonical main at the internal development commit `dec76ef`. Its history contains the frozen answer key and facilitator materials. Treat the corpus as exposed and suspend its use for held-out claims. Review the remote exposure before any publication. The earlier README-only remote assessment is historical.
+
+V1–V5 local engineering and independent review are complete. Actual model utility, unaided human understanding, native Apple Silicon, hosted CI and owner release approvals remain open. The [V5 review](validation/reviews/v5.md), [V5 archive inventory](validation/distribution-results.json), and bundled participant wheel predate MIT and the public history cleanup. Keep those artifacts as historical records. Build fresh packages from the reviewed public checkout using its positive manifest. See the [candidate notes](docs/RELEASE-NOTES.md) and [validation ledger](validation/README.md).
 
 The current configured grunt and sam roles both use GPT-6.2 Sol. Fresh grunt and sam reported that runtime. The previously active grunt doing V1 reported GPT-6.1 Sol. Sam independently verified V1 using GPT-6.2 Sol.
 
 ## Live planner collection at e9afb89
 
-The owner accepted V1–V5 local engineering and authorized transfer of the reviewed synthetic requests to approved, already available providers using included access with no additional charges. Sam cleared all 40 MindTunnel and 40 SQL request texts. The archives, grading materials and checkout stay on the operator side. The current collection record shows zero transfers, sessions and responses. Accuracy and failure attribution remain unknown. Continue with a tool-free, disconnected-from-the-checkout planner surface and confirmed included usage, or run the manual protocol with an eligible model. [Collection guide](validation/MODEL-RUNS.md) · [Live evidence](validation/planner-runs.json)
+The owner accepted V1–V5 local engineering and authorized transfer of the reviewed synthetic requests to approved, already available providers using included access with no additional charges. Sam cleared all 40 MindTunnel and 40 SQL request texts. The archives, grading materials and checkout stay on the operator side. The current collection record shows zero transfers, sessions and responses. Accuracy and failure attribution remain unknown. The exposure recorded above supersedes the previous instructions for blinded collection. [Collection guide](validation/MODEL-RUNS.md) · [Live evidence](validation/planner-runs.json)
 
 ## Post-MVP checkpoints
 
@@ -22,7 +24,7 @@ V2 is checkpointed at 53af712. V3 closed the Linux 3.11 minimum-version gap, inc
 
 V3 is checkpointed at d92a878. The [participant kit](validation/pilot/participant-kit.zip) and [facilitator protocol](validation/pilot/FACILITATOR.md) are ready. The five-row scoring sheet is blank. Zero participants have been observed.
 
-V4 is checkpointed at 186846c. V5 verified publication scope, final binaries and the [synthetic demo](validation/synthetic-demo.gif). No further local action can supply model responses, participant observations or native Mac results under the current authorization. Confirm a monitored private contact and select a project grant before any public release.
+V4 is checkpointed at 186846c. V5 verified publication scope, final binaries and the [synthetic demo](validation/synthetic-demo.gif). No further local action can supply model responses, participant observations or native Mac results under the current authorization. Confirm a monitored private contact before any public release.
 
 ## Historical P0–P5 evidence on 2026-11-26
 
@@ -35,7 +37,7 @@ V4 is checkpointed at 186846c. V5 verified publication scope, final binaries and
 | P4 | Commit bd4916d. Sam PASS for the local harness. 50 tests passed; gold and analyst SQL 30/30 each, mock 0/30 feasible and 10/10 unsupported, invalid vectors 53/53 rejected. Actual model comparisons and five testers pending. |
 | P5 | Local package preparation verified, sam PASS. 54 tests on each of three Linux Python versions. Reproducible same-toolchain wheel and normalized sdist; clean installs checked. Commit fe92165. Full release gate open. Project-wide verification results follow. |
 
-The plain executor is an ordinary process. Do not use real data inside a cloud-connected coding session. A model provider, hosted CI, macOS, external testers and licensing require separate evidence. No provider or license has been selected. No package publication, deployment or push is authorized.
+The plain executor is an ordinary process. Do not use real data inside a cloud-connected coding session. A model provider, hosted CI, macOS and external testers require separate evidence. Provider selection remains open. No package publication, deployment or push is authorized.
 
 Use git log --oneline for local phase commits. Start with PLANS.md and harness/build-log.md, then run make test and make demo. The implementer and reviewer share the filesystem and run separate checks.
 
@@ -50,7 +52,7 @@ The scripted demo took 0.21 seconds in the final review. Linux tests and demo pa
 1. Choose and review a real planner destination/model and a local comparison model. Export the 40 blinded public requests, review the exact bytes before external transfer, collect responses without feedback and run the local scorer. Record latency, cost, manual interventions, separate unsupported outcomes and actual plan-plus-result accuracy. The cloud gate requires at least 85% on the 30 feasible tasks. Collect a model-generated schema-only baseline through a reviewed synthetic evaluation procedure. The current SQL evidence is analyst-authored.
 2. Run the five-person protocol. At least three participants must independently explain the boundary. See [pilot](docs/PILOT.md) and [scorer](harness/evaluation/README.md).
 3. Obtain hosted Linux/macOS evidence, including Python 3.11. The ordinary CLI uses local process permissions on macOS. The isolated worker implementation is Linux-specific.
-4. Confirm name clearance, license and copyright holder, monitored security reporting route and owner release sign-off. The current code carries no final open-source license grant. Re-run the release checklist after any change. [Release checklist](docs/RELEASE.md)
+4. Confirm name clearance, the monitored security reporting route and owner release sign-off. The project license is MIT. Re-run the release checklist after any change. [Release checklist](docs/RELEASE.md)
 5. Reconsider optional operations, integrations and ports only in light of observed planner and pilot failures. P6 is outside this authorization.
 
 Use [source setup](BOOTSTRAP.md), [usage](README.md), [threat model](docs/SECURITY.md), [build log](harness/build-log.md) and [roadmap](PLANS.md) for continuation. Start a new session with git status and the most recent local commits. Retain the fixed prompts, labels and denominators for comparable evaluation.
